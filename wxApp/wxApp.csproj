@@ -153,5 +153,10 @@
     <Resource Include="Images\head5.jpg" />
     <Resource Include="Images\head6.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Bullets-128.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

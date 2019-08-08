@@ -10,8 +10,12 @@
              Background="#EDEAE8"
              >
     <Grid>
-        <StackPanel Height="50" VerticalAlignment="Bottom">
-            
+        <StackPanel Height="50" VerticalAlignment="Top">
+            <Viewbox Width="196" Height="20" Margin="10,20,10,10">
+                <Button Width="196" Height="20" Background="Black">
+                    
+                </Button>
+            </Viewbox>
         </StackPanel>
     </Grid>
 </UserControl>
