@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="wxAppModules.Views.MainOfCenterViewUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:wxAppModules.Views"
+             mc:Ignorable="d" 
+                          xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             Background="#EDEAE8"
+             >
+    <Grid>
+        <StackPanel Height="50" VerticalAlignment="Bottom">
+            
+        </StackPanel>
+    </Grid>
+</UserControl>
