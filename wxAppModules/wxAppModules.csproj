@@ -92,6 +92,7 @@
     <Compile Include="ViewModels\MainOfCenterViewUserControlViewModel.cs" />
     <Compile Include="ViewModels\MainOfLeftViewUserControlViewModel.cs" />
     <Compile Include="ViewModels\MainOfRightViewUserControlViewModel.cs" />
+    <Compile Include="ViewModels\SearchUserControlViewModel.cs" />
     <Compile Include="Views\CurrentUserInfoUserControl.xaml.cs">
       <DependentUpon>CurrentUserInfoUserControl.xaml</DependentUpon>
     </Compile>
@@ -103,6 +104,9 @@
     </Compile>
     <Compile Include="Views\MainOfRightViewUserControl.xaml.cs">
       <DependentUpon>MainOfRightViewUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SearchUserControl.xaml.cs">
+      <DependentUpon>SearchUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="WxAppModule.cs" />
   </ItemGroup>
@@ -137,6 +141,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainOfRightViewUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SearchUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

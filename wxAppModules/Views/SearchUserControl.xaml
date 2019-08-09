@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="wxAppModules.Views.SearchUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+                          xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+              >
+    <Grid>
+        <StackPanel Width="196" Height="32" Margin="10,10,10,10" Orientation="Horizontal">
+            <TextBox Name="test2" Width="156" Height="20" HorizontalAlignment="Left"
+                         Controls:TextBoxHelper.ButtonCommand="{Binding TextBoxButtonCmdWithParameter, Mode=OneWay}"
+                         Controls:TextBoxHelper.ButtonCommandParameter="{Binding ElementName=test2, Path=Text}"
+                         Controls:TextBoxHelper.Watermark="搜索"
+                         Text="{Binding SearchProperty}"
+                         Style="{DynamicResource SearchMetroTextBox}" />
+            <Button Width="28" Height="28" Background="#EDEAE8" HorizontalAlignment="Right" Margin="10,5,0,0"  BorderBrush="{x:Null}" Padding="0" materialDesign:ShadowAssist.ShadowDepth="Depth1">
+                <Canvas Width="28" Height="28" Margin="-4">
+                    <Path Data="M17,13H13V17H11V13H7V11H11V7H13V11H17M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3Z" Fill="Black" />
+                </Canvas>
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

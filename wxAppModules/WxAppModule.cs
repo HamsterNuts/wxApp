@@ -18,6 +18,7 @@ namespace wxAppModules
             regionManager.RegisterViewWithRegion("ContentRegionOfCenter", typeof(MainOfCenterViewUserControl));
             regionManager.RegisterViewWithRegion("ContentRegionOfLeft", typeof(MainOfLeftViewUserControl));
             regionManager.RegisterViewWithRegion("ContentRegionOfRight", typeof(MainOfRightViewUserControl));
+            regionManager.RegisterViewWithRegion("ContentRegionOfSearch", typeof(SearchUserControl));
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
