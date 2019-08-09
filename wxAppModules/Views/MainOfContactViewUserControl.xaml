@@ -1,47 +1,40 @@
-﻿<UserControl x:Class="wxAppModules.Views.MainOfCenterViewUserControl"
+﻿<UserControl x:Class="wxAppModules.Views.MainOfContactViewUserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:wxAppModules.Views"
-              xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+                xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True"
              Background="#EDEAE8"
              >
-    <Grid>
-        <StackPanel VerticalAlignment="Top">
+    <Grid Background="#EDEAE8">
+        <StackPanel VerticalAlignment="Top" Background="#EDEAE8">
             <StackPanel Background="Black">
                 <ListView  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                           Cursor="Hand">
+                    <ListViewItem Background="#EDEAE8">
+                        <TextBlock Text="新的朋友" FontSize="15" Foreground="#808080" Background="#EDEAE8" />
+                    </ListViewItem>
                     <ListViewItem Height="60" Padding="0" Background="#EDEAE8">
                         <StackPanel Orientation="Horizontal" Margin="10 0">
                             <Image Cursor="Hand" Width="50" Height="50" Source="/Images/head2.jpg" Margin="0,10,5,10" />
-                            <StackPanel Width="86" Orientation="Vertical" VerticalAlignment="Center" Margin="5,0">
-                                <TextBlock Text="糖宝" FontSize="15" Foreground="Black" />
-                                <TextBlock Margin="0 2 0 0" FontSize="12" Text="Hello Word" />
+                            <StackPanel Width="86" Orientation="Vertical" VerticalAlignment="Center" Margin="15,0"> 
+                                <TextBlock Text="新的朋友" FontSize="20" Foreground="Black" />
                             </StackPanel>
 
-                            <StackPanel  Orientation="Vertical" VerticalAlignment="Center" Margin="5,0">
-                                <TextBlock Text="14:22" FontSize="12" Foreground="Black" HorizontalAlignment="Right"/>
-                                <TextBlock Margin="0 2 0 0" FontSize="12" Text="" />
-                            </StackPanel>
                         </StackPanel>
                     </ListViewItem>
-
+                    <ListViewItem Background="#EDEAE8">
+                        <TextBlock  Text="公众号" FontSize="15" Foreground="#808080" Background="#EDEAE8" Padding="0" Margin="0"  />
+                    </ListViewItem>
                     <ListViewItem Height="60" Padding="0" Background="#EDEAE8">
                         <StackPanel Orientation="Horizontal" Margin="10 0">
                             <Image Cursor="Hand" Width="50" Height="50" Source="/Images/head3.jpg" Margin="0,10,5,10" />
-                            <StackPanel Width="86" Orientation="Vertical" VerticalAlignment="Center" Margin="5,0">
-                                <TextBlock Text="潘多拉" FontSize="15" Foreground="Black" />
-                                <TextBlock Margin="0 2 0 0" FontSize="12" Text="你好" />
-                            </StackPanel>
-
-                            <StackPanel  Orientation="Vertical" VerticalAlignment="Center" Margin="5,0">
-                                <TextBlock Text="14:32" FontSize="12" Foreground="Black" HorizontalAlignment="Right"/>
-                                <TextBlock Margin="0 2 0 0" FontSize="12" Text="" />
+                            <StackPanel Width="86" Orientation="Vertical" VerticalAlignment="Center" Margin="15,0">
+                                <TextBlock Text="公众号" FontSize="20" Foreground="Black" />
                             </StackPanel>
                         </StackPanel>
                     </ListViewItem>

@@ -32,7 +32,10 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <ContentControl Grid.Row="0" prism:RegionManager.RegionName="ContentRegionOfSearch" />
-            <ContentControl Grid.Row="1" prism:RegionManager.RegionName="ContentRegionOfCenter" />
+            <!--<ContentControl Grid.Row="1" prism:RegionManager.RegionName="ContentRegionOfContact" />-->
+            <ContentControl Grid.Row="1" prism:RegionManager.RegionName="ContentRegionOfDynamic" />
+            
+            <!--<ContentControl Grid.Row="1" prism:RegionManager.RegionName="ContentRegionOfCenter" />-->
         </Grid>
         <Grid Grid.Column="2" >
             <Grid.RowDefinitions>

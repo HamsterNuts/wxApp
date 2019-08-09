@@ -90,6 +90,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CurrentUserInfoUserControlViewModel.cs" />
     <Compile Include="ViewModels\MainOfCenterViewUserControlViewModel.cs" />
+    <Compile Include="ViewModels\MainOfContactViewUserControlViewModel.cs" />
     <Compile Include="ViewModels\MainOfLeftViewUserControlViewModel.cs" />
     <Compile Include="ViewModels\MainOfRightViewUserControlViewModel.cs" />
     <Compile Include="ViewModels\SearchUserControlViewModel.cs" />
@@ -98,6 +99,12 @@
     </Compile>
     <Compile Include="Views\MainOfCenterViewUserControl.xaml.cs">
       <DependentUpon>MainOfCenterViewUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainOfContactViewUserControl.xaml.cs">
+      <DependentUpon>MainOfContactViewUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainOfDynamicViewUserControl.xaml.cs">
+      <DependentUpon>MainOfDynamicViewUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainOfLeftViewUserControl.xaml.cs">
       <DependentUpon>MainOfLeftViewUserControl.xaml</DependentUpon>
@@ -133,6 +140,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainOfCenterViewUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainOfContactViewUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainOfDynamicViewUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
