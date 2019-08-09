@@ -24,18 +24,18 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0" >
-            <ContentControl prism:RegionManager.RegionName="ContentRegionOfLeft" />
+            <ContentControl prism:RegionManager.RegionName="{Binding ContentRegionOfLeftProperty,Mode=TwoWay}" />
         </Grid>
         <Grid Grid.Column="1" Background="#EDEAE8">
             <Grid.RowDefinitions>
                 <RowDefinition Height="52" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <ContentControl Grid.Row="0" prism:RegionManager.RegionName="ContentRegionOfSearch" />
+            <ContentControl Grid.Row="0" prism:RegionManager.RegionName="{Binding ContentRegionOfSearchProperty,Mode=TwoWay}" />
             <!--<ContentControl Grid.Row="1" prism:RegionManager.RegionName="ContentRegionOfContact" />-->
-            <ContentControl Grid.Row="1" prism:RegionManager.RegionName="ContentRegionOfDynamic" />
-            
-            <!--<ContentControl Grid.Row="1" prism:RegionManager.RegionName="ContentRegionOfCenter" />-->
+            <!--<ContentControl Grid.Row="1" prism:RegionManager.RegionName="ContentRegionOfDynamic" />-->
+
+            <ContentControl Grid.Row="1" prism:RegionManager.RegionName="{Binding ContentRegionOfCenterProperty,Mode=TwoWay}" />
         </Grid>
         <Grid Grid.Column="2" >
             <Grid.RowDefinitions>
@@ -82,7 +82,7 @@
                     </Button>
                 </Grid>
             </StackPanel>
-            <ContentControl Grid.Row="1" prism:RegionManager.RegionName="ContentRegionOfRight" />
+            <ContentControl Grid.Row="1" prism:RegionManager.RegionName="{Binding ContentRegionOfRightProperty,Mode=TwoWay}" />
         </Grid>
     </Grid>
 </Controls:MetroWindow>

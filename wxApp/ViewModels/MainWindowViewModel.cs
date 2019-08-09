@@ -16,6 +16,10 @@ namespace wxApp.ViewModels
             IsLoginFailed = true;
             WindowStateProperty = WindowState.Normal;
             Title = "WXApp";
+            ContentRegionOfLeftProperty = "ContentRegionOfLeft";
+            ContentRegionOfSearchProperty = "ContentRegionOfSearch";
+            ContentRegionOfCenterProperty = "ContentRegionOfCenter";
+            ContentRegionOfRightProperty = "ContentRegionOfRight";
             SndmsgDelegateCommand = new DelegateCommand(Execute, CanExecute);
             CloseDelegateCommand = new DelegateCommand(CloseExecute, CanExecute);
             MinimizedDelegateCommand = new DelegateCommand(MinimizedExecute, CanExecute);
@@ -103,6 +107,51 @@ namespace wxApp.ViewModels
             get { return _windowStateProperty; }
             set { SetProperty(ref _windowStateProperty, value); }
         }
+
+        /// <summary>
+        /// 左
+        /// </summary>
+        private string _contentRegionOfLeftProperty;
+
+        public string ContentRegionOfLeftProperty
+        {
+            get { return _contentRegionOfLeftProperty; }
+            set { SetProperty(ref _contentRegionOfLeftProperty, value); }
+        }
+
+        /// <summary>
+        /// 中 筛选框
+        /// </summary>
+        private string _contentRegionOfSearchProperty;
+
+        public string ContentRegionOfSearchProperty
+        {
+            get { return _contentRegionOfSearchProperty; }
+            set { SetProperty(ref _contentRegionOfSearchProperty, value); }
+        }
+
+        /// <summary>
+        /// 中 内容框
+        /// </summary>
+        private string _contentRegionOfCenterProperty;
+
+        public string ContentRegionOfCenterProperty
+        {
+            get { return _contentRegionOfCenterProperty; }
+            set { SetProperty(ref _contentRegionOfCenterProperty, value); }
+        }
+
+        /// <summary>
+        /// 右 内容框
+        /// </summary>
+        private string _contentRegionOfRightProperty;
+
+        public string ContentRegionOfRightProperty
+        {
+            get { return _contentRegionOfRightProperty; }
+            set { SetProperty(ref _contentRegionOfRightProperty, value); }
+        }
+
         #endregion
     }
 }

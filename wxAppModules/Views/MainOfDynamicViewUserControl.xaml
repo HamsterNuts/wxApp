@@ -20,8 +20,8 @@
                         <Button Height="30" Width="125" Margin="0"  >
                             <Button.Content>
                                 <Canvas Width="24" Height="24">
-                                    <Path Margin="-30,-5,0,0" Data="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" Fill="Black" />
-                                    <TextBlock Margin="0 -2 0 0" FontSize="15" Text="新建笔记" />
+                                    <Path Margin="-40,-5,0,0" Data="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" Fill="Black" />
+                                    <TextBlock Margin="-10 -2 0 0" FontSize="16" Text="新建笔记" />
                                 </Canvas>
                             </Button.Content>
                         </Button>
