@@ -12,7 +12,7 @@
         ShowTitleBar="False"
          ShowIconOnTitleBar="False"
         TitlebarHeight="0"
-        Title="{Binding TitleProperty}"
+        Title="{Binding ContentRegionOfCenterProperty,Mode=TwoWay}"
                        MouseMove="Window_MouseMove"
         IsEnabled="{Binding IsLoginFailed,Mode=OneWay}"
         WindowState="{Binding WindowStateProperty,Mode=TwoWay}"
@@ -35,7 +35,7 @@
             <!--<ContentControl Grid.Row="1" prism:RegionManager.RegionName="ContentRegionOfContact" />-->
             <!--<ContentControl Grid.Row="1" prism:RegionManager.RegionName="ContentRegionOfDynamic" />-->
 
-            <ContentControl Grid.Row="1" prism:RegionManager.RegionName="{Binding ContentRegionOfCenterProperty,Mode=TwoWay}" />
+            <ContentControl Grid.Row="1" prism:RegionManager.RegionName="{Binding ContentRegionOfCenterProperty}" />
         </Grid>
         <Grid Grid.Column="2" >
             <Grid.RowDefinitions>

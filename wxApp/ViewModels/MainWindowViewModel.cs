@@ -1,18 +1,23 @@
 ﻿using Prism.Commands;
+using Prism.Events;
 using Prism.Mvvm;
+using Prism.Regions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using wxAppHelper.UsingEventAggregator;
 
 namespace wxApp.ViewModels
 {
   public class MainWindowViewModel:BindableBase
 {
-        public MainWindowViewModel()
+        IEventAggregator _ea;
+        public MainWindowViewModel(IEventAggregator ea)
         {
+            _ea = ea;
             IsLoginFailed = true;
             WindowStateProperty = WindowState.Normal;
             Title = "WXApp";
@@ -24,8 +29,25 @@ namespace wxApp.ViewModels
             CloseDelegateCommand = new DelegateCommand(CloseExecute, CanExecute);
             MinimizedDelegateCommand = new DelegateCommand(MinimizedExecute, CanExecute);
             MaximizedDelegateCommand = new DelegateCommand(MaximizedExecute, CanExecute);
+
+            _ea.GetEvent<MessageSentEvent>().Subscribe(MessageReceived);
         }
         #region method
+        private void MessageReceived(string message)
+        {
+            switch (message)
+            {
+                case "message":
+                    ContentRegionOfCenterProperty = "ContentRegionOfCenter";
+                    break;
+                case "contact":
+                    ContentRegionOfCenterProperty = "ContentRegionOfContact";
+                    break;
+                case "dynamic":
+                    ContentRegionOfCenterProperty = "ContentRegionOfDynamic";
+                    break;
+            }
+        }
         //关闭窗口
         public void CloseExecute()
         {

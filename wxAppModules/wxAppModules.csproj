@@ -164,5 +164,11 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\wxAppHelper\wxAppHelper.csproj">
+      <Project>{1bb71937-8e0d-4303-a299-6e6327ae78bd}</Project>
+      <Name>wxAppHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

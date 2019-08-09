@@ -137,6 +137,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\wxAppHelper\wxAppHelper.csproj">
+      <Project>{1bb71937-8e0d-4303-a299-6e6327ae78bd}</Project>
+      <Name>wxAppHelper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\wxAppModules\wxAppModules.csproj">
       <Project>{16a05130-943a-40ea-a277-31b74256da4d}</Project>
       <Name>wxAppModules</Name>

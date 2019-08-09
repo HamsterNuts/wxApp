@@ -17,7 +17,7 @@
                 </Viewbox>
 
             <Viewbox Width="30" Height="30" Margin="10">
-                    <Button Width="30" Height="30">
+                <Button Width="30" Height="30" Command="{Binding OpenMessageCommand}">
                     <Canvas Width="40" Height="40" Margin="-3,-3,-10,-10">
                             <Path Data="M16,15H9V13H16V15M19,11H9V9H19V11M19,7H9V5H19V7M3,5V21H19V23H3A2,2 0 0,1 1,21V5H3M21,1A2,2 0 0,1 23,3V17C23,18.11 22.11,19 21,19H7A2,2 0 0,1 5,17V3C5,1.89 5.89,1 7,1H21M7,3V17H21V3H7Z" Fill="Black" />
                         </Canvas>
@@ -25,7 +25,7 @@
                 </Viewbox>
 
                 <Viewbox Width="30" Height="30" Margin="10">
-                    <Button Width="30" Height="30">
+                <Button Width="30" Height="30" Command="{Binding OpenContactCommand}">
                     <Canvas Width="30" Height="30" Margin="-7,-7,-13,-13">
                             <Path Data="M6,17C6,15 10,13.9 12,13.9C14,13.9 18,15 18,17V18H6M15,9A3,3 0 0,1 12,12A3,3 0 0,1 9,9A3,3 0 0,1 12,6A3,3 0 0,1 15,9M3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3H5C3.89,3 3,3.9 3,5Z" Fill="Black" />
                         </Canvas>
@@ -33,7 +33,7 @@
                 </Viewbox>
 
                 <Viewbox Width="30" Height="30" Margin="10">
-                    <Button Width="30" Height="30">
+                <Button Width="30" Height="30" Command="{Binding OpenDynamicCommand}">
                     <Canvas Width="30" Height="30" Margin="-7,-7,-13,-13">
                             <Path Data="M3,1C1.89,1 1,1.89 1,3V14C1,15.11 1.89,16 3,16C4.33,16 7,16 7,16C7,16 7,18.67 7,20C7,21.11 7.89,22 9,22H20C21.11,22 22,21.11 22,20V9C22,7.89 21.11,7 20,7C18.67,7 16,7 16,7C16,7 16,4.33 16,3C16,1.89 15.11,1 14,1H3M3,3H14C14,4.33 14,7 14,7H9C7.89,7 7,7.89 7,9V14C7,14 4.33,14 3,14V3M9,9H14V14H9V9M16,9C16,9 18.67,9 20,9V20H9C9,18.67 9,16 9,16H14C15.11,16 16,15.11 16,14V9Z" Fill="Black" />
                         </Canvas>
