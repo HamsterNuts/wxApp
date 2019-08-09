@@ -32,10 +32,13 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <ContentControl Grid.Row="0" prism:RegionManager.RegionName="{Binding ContentRegionOfSearchProperty,Mode=TwoWay}" />
-            <!--<ContentControl Grid.Row="1" prism:RegionManager.RegionName="ContentRegionOfContact" />-->
-            <!--<ContentControl Grid.Row="1" prism:RegionManager.RegionName="ContentRegionOfDynamic" />-->
 
-            <ContentControl Grid.Row="1" prism:RegionManager.RegionName="{Binding ContentRegionOfCenterProperty}" />
+
+            <ContentControl Grid.Row="1" prism:RegionManager.RegionName="ContentRegionOfContact" Visibility="{Binding ContactVisibilityProperty}" />
+            <ContentControl Grid.Row="1" prism:RegionManager.RegionName="ContentRegionOfCenter"  Visibility="{Binding CenterVisibilityProperty}"/>
+            <ContentControl Grid.Row="1" prism:RegionManager.RegionName="ContentRegionOfDynamic" Visibility="{Binding DynamicVisibilityProperty}" />
+
+            <!--<ContentControl Grid.Row="1" x:Name="ContentRegionOfCenterControl" prism:RegionManager.RegionName="{Binding ContentRegionOfCenterProperty}" />-->
         </Grid>
         <Grid Grid.Column="2" >
             <Grid.RowDefinitions>

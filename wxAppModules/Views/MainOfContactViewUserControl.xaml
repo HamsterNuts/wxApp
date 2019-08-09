@@ -38,6 +38,9 @@
                             </StackPanel>
                         </StackPanel>
                     </ListViewItem>
+                    <ListViewItem Background="#EDEAE8">
+                        <TextBlock  Text="联系人" FontSize="15" Foreground="#808080" Background="#EDEAE8" Padding="0" Margin="0"  />
+                    </ListViewItem>
                 </ListView>
             </StackPanel>
         </StackPanel>

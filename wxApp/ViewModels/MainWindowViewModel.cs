@@ -12,13 +12,17 @@ using wxAppHelper.UsingEventAggregator;
 
 namespace wxApp.ViewModels
 {
-  public class MainWindowViewModel:BindableBase
-{
+    public class MainWindowViewModel : BindableBase
+    {
         IEventAggregator _ea;
-        public MainWindowViewModel(IEventAggregator ea)
+        IRegionManager _regionManager;
+        public MainWindowViewModel(IEventAggregator ea, IRegionManager regionManager)
         {
+
             _ea = ea;
+            _regionManager = regionManager;
             IsLoginFailed = true;
+            MessageReceived("message");
             WindowStateProperty = WindowState.Normal;
             Title = "WXApp";
             ContentRegionOfLeftProperty = "ContentRegionOfLeft";
@@ -29,6 +33,7 @@ namespace wxApp.ViewModels
             CloseDelegateCommand = new DelegateCommand(CloseExecute, CanExecute);
             MinimizedDelegateCommand = new DelegateCommand(MinimizedExecute, CanExecute);
             MaximizedDelegateCommand = new DelegateCommand(MaximizedExecute, CanExecute);
+            
 
             _ea.GetEvent<MessageSentEvent>().Subscribe(MessageReceived);
         }
@@ -39,14 +44,25 @@ namespace wxApp.ViewModels
             {
                 case "message":
                     ContentRegionOfCenterProperty = "ContentRegionOfCenter";
+                    CenterVisibilityProperty = Visibility.Visible;
+                    ContactVisibilityProperty = Visibility.Hidden;
+                    DynamicVisibilityProperty = Visibility.Hidden;
                     break;
                 case "contact":
                     ContentRegionOfCenterProperty = "ContentRegionOfContact";
+                    CenterVisibilityProperty = Visibility.Hidden;
+                    ContactVisibilityProperty = Visibility.Visible;
+                    DynamicVisibilityProperty = Visibility.Hidden;
                     break;
                 case "dynamic":
                     ContentRegionOfCenterProperty = "ContentRegionOfDynamic";
+                    CenterVisibilityProperty = Visibility.Hidden;
+                    ContactVisibilityProperty = Visibility.Hidden;
+                    DynamicVisibilityProperty = Visibility.Visible;
                     break;
             }
+
+            //RegionManager.SetRegionManager("ContentRegionOfCenterControl", ContentRegionOfCenterProperty);
         }
         //关闭窗口
         public void CloseExecute()
@@ -55,7 +71,7 @@ namespace wxApp.ViewModels
             //this.Close();
             //关闭全部窗体并退出程序使用：
             Application.Current.Shutdown();
-           // IsLoginFailed = false;
+            // IsLoginFailed = false;
         }
         /// <summary>
         /// 最小化窗口
@@ -174,6 +190,29 @@ namespace wxApp.ViewModels
             set { SetProperty(ref _contentRegionOfRightProperty, value); }
         }
 
+        private Visibility _contactVisibilityProperty;
+
+        public Visibility ContactVisibilityProperty
+        {
+            get { return _contactVisibilityProperty; }
+            set { SetProperty(ref _contactVisibilityProperty, value); }
+        }
+
+        private Visibility _centerVisibilityProperty;
+
+        public Visibility CenterVisibilityProperty
+        {
+            get { return _centerVisibilityProperty; }
+            set { SetProperty(ref _centerVisibilityProperty, value); }
+        }
+
+        private Visibility _dynamicVisibilityProperty;
+
+        public Visibility DynamicVisibilityProperty
+        {
+            get { return _dynamicVisibilityProperty; }
+            set { SetProperty(ref _dynamicVisibilityProperty, value); }
+        }
         #endregion
     }
 }
