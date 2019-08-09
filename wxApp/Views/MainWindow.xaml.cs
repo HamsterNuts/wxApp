@@ -24,6 +24,23 @@ namespace wxApp.Views
         public MainWindow()
         {
             InitializeComponent();
+            this.IsEnabledChanged += LoginWindow_IsEnabledChanged;
+        }
+        private void Window_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+            }
+        }
+
+        private void LoginWindow_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if ((bool)e.NewValue == false)
+            {
+                this.Close();
+            }
         }
     }
+ 
 }

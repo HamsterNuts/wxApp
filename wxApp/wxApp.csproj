@@ -144,17 +144,26 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\github.png" />
-    <Resource Include="Images\head1.jpg" />
+    <Resource Include="Images\head1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\head2.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\head3.jpg" />
+    <Resource Include="Images\head3.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\head4.jpg" />
     <Resource Include="Images\head5.jpg" />
     <Resource Include="Images\head6.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Bullets-128.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Add-New-256.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
