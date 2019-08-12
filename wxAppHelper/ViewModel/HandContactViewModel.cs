@@ -9,6 +9,7 @@ namespace wxAppHelper.ViewModel
 {
   public  class HandContactViewModel:BindableBase
     {
+        //name
         private string _nameProperty;
         public string NameProperty
         {
