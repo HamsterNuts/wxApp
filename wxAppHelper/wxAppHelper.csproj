@@ -65,9 +65,16 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsingEventAggregator\MessageSentEvent.cs" />
+    <Compile Include="ViewModel\HandContactViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\wxAppModel\wxAppModel.csproj">
+      <Project>{c2aec95a-d443-4263-89d7-ce042a850f6e}</Project>
+      <Name>wxAppModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

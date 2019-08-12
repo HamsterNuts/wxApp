@@ -10,4 +10,8 @@ namespace wxAppHelper.UsingEventAggregator
     public class MessageSentEvent : PubSubEvent<string>
     {
     }
+
+    public class SearcchSentEvent : PubSubEvent<string>
+    {
+    }
 }

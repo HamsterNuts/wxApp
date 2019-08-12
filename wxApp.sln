@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wxAppModules", "wxAppModule
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wxAppHelper", "wxAppHelper\wxAppHelper.csproj", "{1BB71937-8E0D-4303-A299-6E6327AE78BD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wxAppModel", "wxAppModel\wxAppModel.csproj", "{C2AEC95A-D443-4263-89D7-CE042A850F6E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{1BB71937-8E0D-4303-A299-6E6327AE78BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BB71937-8E0D-4303-A299-6E6327AE78BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BB71937-8E0D-4303-A299-6E6327AE78BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2AEC95A-D443-4263-89D7-CE042A850F6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2AEC95A-D443-4263-89D7-CE042A850F6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2AEC95A-D443-4263-89D7-CE042A850F6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2AEC95A-D443-4263-89D7-CE042A850F6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
