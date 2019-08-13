@@ -42,8 +42,8 @@
                 <ListViewItem Background="#EDEAE8">
                     <TextBlock  Text="联系人" FontSize="15" Foreground="#808080" Background="#EDEAE8" Padding="0" Margin="0"  />
                 </ListViewItem>
-                <ListView Padding="0"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="#EDEAE8" Cursor="Hand" ItemsSource="{Binding HandContactData}">
-                    <ListView.ItemTemplate >
+                <ListView Padding="0"  ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Cursor="Hand" ItemsSource="{Binding HandContactData}">
+                    <ListView.ItemTemplate>
                         <DataTemplate>
                             <ListViewItem Height="60" Padding="0" Background="#EDEAE8">
                                 <StackPanel Orientation="Horizontal" Margin="10 0">
