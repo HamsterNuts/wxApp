@@ -14,6 +14,7 @@ namespace wxApp
     {
         protected override Window CreateShell()
         {
+            wxAppHelper.Helper.InitializeData.Initialize();
             return Container.Resolve<MainWindow>();
         }
 
