@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using wxAppHelper.Helper;
 using wxAppHelper.UsingEventAggregator;
 
 namespace wxApp.ViewModels
@@ -42,36 +43,36 @@ namespace wxApp.ViewModels
             _ea.GetEvent<SearcchSentEvent>().Subscribe(SearcchReceived);
         }
         #region method
-        public async Task<MessageDialogResult>  ShowMessageButtonDialog(string header, string message)
-        {
-            var mySettings = new MetroDialogSettings()
-            {
-                AffirmativeButtonText = "确定",
-                NegativeButtonText = "取消",
-                ColorScheme = MetroDialogColorScheme.Accented
-            };
+        //public async Task<MessageDialogResult>  ShowMessageButtonDialog(string header, string message)
+        //{
+        //    var mySettings = new MetroDialogSettings()
+        //    {
+        //        AffirmativeButtonText = "确定",
+        //        NegativeButtonText = "取消",
+        //        ColorScheme = MetroDialogColorScheme.Accented
+        //    };
 
-            var result =  await dialogCoordinator.ShowMessageAsync(this,header, message, MessageDialogStyle.AffirmativeAndNegative, mySettings);
-            return result;
+        //    var result =  await dialogCoordinator.ShowMessageAsync(this,header, message, MessageDialogStyle.AffirmativeAndNegative, mySettings);
+        //    return result;
   
-        }
-        /// <summary>
-        /// 显示弹框
-        /// </summary>
-        public async void ShowMessageDialog(string header,string message)
-        {
-            await dialogCoordinator.ShowMessageAsync(this, header, message);
-        }
+        //}
+        ///// <summary>
+        ///// 显示弹框
+        ///// </summary>
+        //public async void ShowMessageDialog(string header,string message)
+        //{
+        //    await dialogCoordinator.ShowMessageAsync(this, header, message);
+        //}
 
-        private async void RunProgressFromVm(string header, string message)
-        {
-            var controller = await dialogCoordinator.ShowProgressAsync(this, header, message);
-            controller.SetIndeterminate();
+        //private async void RunProgressFromVm(string header, string message)
+        //{
+        //    var controller = await dialogCoordinator.ShowProgressAsync(this, header, message);
+        //    controller.SetIndeterminate();
 
-            await TaskEx.Delay(3000);
+        //    await TaskEx.Delay(3000);
 
-            await controller.CloseAsync();
-        }
+        //    await controller.CloseAsync();
+        //}
         public void SearcchReceived(string search)
         {
             ContentRegionOfCenterProperty = "ContentRegionOfContact";
@@ -105,27 +106,22 @@ namespace wxApp.ViewModels
 
             //RegionManager.SetRegionManager("ContentRegionOfCenterControl", ContentRegionOfCenterProperty);
         }
-        public static class TaskEx
-        {
-            public static Task Delay(int dueTime)
-            {
-                return Task.Delay(dueTime);
-            }
-        }
+        
         /// <summary>
         /// 窗口置顶
         /// </summary>
         public void TopmostExecute()
         {
-            string message = TopmostProperty ?"是否取消置顶":"是否置顶";
-            RunProgressFromVm("置顶提示", message);
+            string message = TopmostProperty ?"取消置顶成功！":"置顶成功！";
+            wxAppHelper.Helper.ShowDialog.ShowRunProgress(this,dialogCoordinator,"置顶提示", message,3000);
            // ShowMessageDialog("置顶提示", message);
             TopmostProperty = TopmostProperty ? false:true;
         }
         //关闭窗口
         public async void  CloseExecute()
         {
-           var result = await ShowMessageButtonDialog("提示", "是否关闭当前窗口");
+            
+           var result = await wxAppHelper.Helper.ShowDialog.ShowMessageButtonDialog(this,dialogCoordinator,"提示", "是否关闭当前窗口");
             if (result == MessageDialogResult.Affirmative)
                 IsLoginFailed = false;
             //一般关闭当前窗体使用:
