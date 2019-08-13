@@ -17,39 +17,39 @@ namespace wxAppModules.ViewModels
         {
             _ea = ea;
             HandContactData = wxAppHelper.Helper.InitializeData.HandContactData;
-            InitializeData();
+            //InitializeData();
             _ea.GetEvent<SearcchSentEvent>().Subscribe(SearcchReceived);
         }
-        public void InitializeData()
-        {
-            HandContactData = new List<HandContactViewModel>();
-            var handContact0 = new HandContactViewModel()
-            {
-                IdProperty = 1,
-                NameProperty = "阿芷",
-                ImageProperty = "/Images/head7.jpg",
-                SexProperty=1,
-                SignatureProperty="一场好大的雨",
-                NoteProperty="朋友",
-                WxNumberProperty= "wxid_l7csinw4yqjn21",
-                SourceProperty="通过群聊添加",
-                AddressProperty="江苏 南通"
-            };
-            var handContact1 = new HandContactViewModel()
-            {
-                IdProperty = 2,
-                NameProperty = "张三",
-                ImageProperty = "/Images/head6.jpg",
-                SexProperty = 1,
-                SignatureProperty = "一场好大的雨",
-                NoteProperty = "朋友",
-                WxNumberProperty = "wxid_l7csinw4yqjn21",
-                SourceProperty = "通过群聊添加",
-                AddressProperty = "江苏 南通"
-            };
-            HandContactData.Add(handContact0);
-            HandContactData.Add(handContact1);
-        }
+        //public void InitializeData()
+        //{
+        //    HandContactData = new List<HandContactViewModel>();
+        //    var handContact0 = new HandContactViewModel()
+        //    {
+        //        IdProperty = 1,
+        //        NameProperty = "阿芷",
+        //        ImageProperty = "/Images/head7.jpg",
+        //        SexProperty=1,
+        //        SignatureProperty="一场好大的雨",
+        //        NoteProperty="朋友",
+        //        WxNumberProperty= "wxid_l7csinw4yqjn21",
+        //        SourceProperty="通过群聊添加",
+        //        AddressProperty="江苏 南通"
+        //    };
+        //    var handContact1 = new HandContactViewModel()
+        //    {
+        //        IdProperty = 2,
+        //        NameProperty = "张三",
+        //        ImageProperty = "/Images/head6.jpg",
+        //        SexProperty = 1,
+        //        SignatureProperty = "一场好大的雨",
+        //        NoteProperty = "朋友",
+        //        WxNumberProperty = "wxid_l7csinw4yqjn21",
+        //        SourceProperty = "通过群聊添加",
+        //        AddressProperty = "江苏 南通"
+        //    };
+        //    HandContactData.Add(handContact0);
+        //    HandContactData.Add(handContact1);
+        //}
 
         /// <summary>
         /// 筛选字段
@@ -62,7 +62,7 @@ namespace wxAppModules.ViewModels
             }
             else
             {
-                InitializeData();
+                HandContactData = wxAppHelper.Helper.InitializeData.HandContactData;
             }
             
         }
