@@ -19,7 +19,8 @@
         IsEnabled="{Binding IsLoginFailed,Mode=OneWay}"
         WindowState="{Binding WindowStateProperty,Mode=TwoWay}"
                       Height="600" Width="900"
-                      Topmost="{Binding TopmostProperty,Mode=TwoWay}">
+                      Topmost="{Binding TopmostProperty,Mode=TwoWay}"
+                      Background="#F5F5F5">
     <Grid>
         <Grid.ColumnDefinitions >
             <ColumnDefinition Width="50" />
@@ -88,8 +89,8 @@
                         </Viewbox>
                     </Button>
                 </Grid>
-            </StackPanel>
-            <ContentControl Grid.Row="1" prism:RegionManager.RegionName="{Binding ContentRegionOfRightProperty,Mode=TwoWay}" />
+            </StackPanel >
+            <ContentControl Background="#F5F5F5" Grid.Row="1" prism:RegionManager.RegionName="{Binding ContentRegionOfRightProperty,Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True}"  />
         </Grid>
     </Grid>
 </Controls:MetroWindow>

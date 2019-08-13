@@ -21,6 +21,8 @@ namespace wxAppModules
             regionManager.RegisterViewWithRegion("ContentRegionOfSearch", typeof(SearchUserControl));
             regionManager.RegisterViewWithRegion("ContentRegionOfContact", typeof(MainOfContactViewUserControl));
             regionManager.RegisterViewWithRegion("ContentRegionOfDynamic", typeof(MainOfDynamicViewUserControl));
+            regionManager.RegisterViewWithRegion("ContentRegionOfContactDetails", typeof(TheContactDetailsUserControl));
+
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)

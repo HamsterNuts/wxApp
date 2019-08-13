@@ -115,6 +115,9 @@
     <Compile Include="Views\SearchUserControl.xaml.cs">
       <DependentUpon>SearchUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\TheContactDetailsUserControl.xaml.cs">
+      <DependentUpon>TheContactDetailsUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WxAppModule.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +163,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SearchUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TheContactDetailsUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

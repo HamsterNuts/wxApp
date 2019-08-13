@@ -32,7 +32,8 @@ namespace wxApp.ViewModels
             ContentRegionOfLeftProperty = "ContentRegionOfLeft";
             ContentRegionOfSearchProperty = "ContentRegionOfSearch";
             ContentRegionOfCenterProperty = "ContentRegionOfCenter";
-            ContentRegionOfRightProperty = "ContentRegionOfRight";
+            //ContentRegionOfRightProperty = "ContentRegionOfRight";
+            ContentRegionOfRightProperty = "ContentRegionOfContactDetails";
             SndmsgDelegateCommand = new DelegateCommand(Execute, CanExecute);
             CloseDelegateCommand = new DelegateCommand(CloseExecute, CanExecute);
             MinimizedDelegateCommand = new DelegateCommand(MinimizedExecute, CanExecute);
