@@ -12,11 +12,14 @@
         ShowTitleBar="False"
          ShowIconOnTitleBar="False"
         TitlebarHeight="0"
+        xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+        Dialog:DialogParticipation.Register="{Binding}"
         Title="{Binding ContentRegionOfCenterProperty,Mode=TwoWay}"
                        MouseMove="Window_MouseMove"
         IsEnabled="{Binding IsLoginFailed,Mode=OneWay}"
         WindowState="{Binding WindowStateProperty,Mode=TwoWay}"
-                      Height="600" Width="900">
+                      Height="600" Width="900"
+                      Topmost="{Binding TopmostProperty,Mode=TwoWay}">
     <Grid>
         <Grid.ColumnDefinitions >
             <ColumnDefinition Width="50" />
@@ -53,7 +56,8 @@
                         <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Column="0"  Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" >
+                    <Button Grid.Column="0"  Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                          Command="{Binding TopmostDelegateCommand}"  >
                         <Viewbox Width="25" Height="25">
                             <Canvas Width="24" Height="24">
                                 <Path Data="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" Fill="Black" />
