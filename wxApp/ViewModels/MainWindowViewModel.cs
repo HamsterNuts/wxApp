@@ -27,8 +27,10 @@ namespace wxApp.ViewModels
             _regionManager = regionManager;
             IsLoginFailed = true;
             MessageReceived("message");
+            DetailsReceived("chat");
             WindowStateProperty = WindowState.Normal;
             Title = "WXApp";
+
             ContentRegionOfLeftProperty = "ContentRegionOfLeft";
             ContentRegionOfSearchProperty = "ContentRegionOfSearch";
             ContentRegionOfCenterProperty = "ContentRegionOfCenter";
@@ -42,6 +44,7 @@ namespace wxApp.ViewModels
 
             _ea.GetEvent<MessageSentEvent>().Subscribe(MessageReceived);
             _ea.GetEvent<SearcchSentEvent>().Subscribe(SearcchReceived);
+            _ea.GetEvent<DetailsSentEvent>().Subscribe(DetailsReceived);
         }
         #region method
         //public async Task<MessageDialogResult>  ShowMessageButtonDialog(string header, string message)
@@ -55,7 +58,7 @@ namespace wxApp.ViewModels
 
         //    var result =  await dialogCoordinator.ShowMessageAsync(this,header, message, MessageDialogStyle.AffirmativeAndNegative, mySettings);
         //    return result;
-  
+
         //}
         ///// <summary>
         ///// 显示弹框
@@ -74,6 +77,24 @@ namespace wxApp.ViewModels
 
         //    await controller.CloseAsync();
         //}
+
+        public void DetailsReceived(string details)
+        {
+            switch (details)
+            {
+                case "chat":
+                    RightVisibilityProperty = Visibility.Visible;
+                    ContactDetailsVisibilityProperty = Visibility.Hidden;
+                    break;
+                case "details":
+                    RightVisibilityProperty = Visibility.Hidden;
+                    ContactDetailsVisibilityProperty = Visibility.Visible;
+                    break;
+
+            }
+          
+           
+        }
         public void SearcchReceived(string search)
         {
             ContentRegionOfCenterProperty = "ContentRegionOfContact";
@@ -107,22 +128,22 @@ namespace wxApp.ViewModels
 
             //RegionManager.SetRegionManager("ContentRegionOfCenterControl", ContentRegionOfCenterProperty);
         }
-        
+
         /// <summary>
         /// 窗口置顶
         /// </summary>
         public void TopmostExecute()
         {
-            string message = TopmostProperty ?"取消置顶成功！":"置顶成功！";
-            wxAppHelper.Helper.ShowDialog.ShowRunProgress(this,dialogCoordinator,"置顶提示", message,3000);
-           // ShowMessageDialog("置顶提示", message);
-            TopmostProperty = TopmostProperty ? false:true;
+            string message = TopmostProperty ? "取消置顶成功！" : "置顶成功！";
+            wxAppHelper.Helper.ShowDialog.ShowRunProgress(this, dialogCoordinator, "置顶提示", message, 3000);
+            // ShowMessageDialog("置顶提示", message);
+            TopmostProperty = TopmostProperty ? false : true;
         }
         //关闭窗口
-        public async void  CloseExecute()
+        public async void CloseExecute()
         {
-            
-           var result = await wxAppHelper.Helper.ShowDialog.ShowMessageButtonDialog(this,dialogCoordinator,"提示", "是否关闭当前窗口");
+
+            var result = await wxAppHelper.Helper.ShowDialog.ShowMessageButtonDialog(this, dialogCoordinator, "提示", "是否关闭当前窗口");
             if (result == MessageDialogResult.Affirmative)
                 IsLoginFailed = false;
             //一般关闭当前窗体使用:
@@ -181,9 +202,9 @@ namespace wxApp.ViewModels
         /// </summary>
         public DelegateCommand MaximizedDelegateCommand { get; private set; }
 
-       /// <summary>
-       /// 设置窗口在最上方
-       /// </summary>
+        /// <summary>
+        /// 设置窗口在最上方
+        /// </summary>
         public DelegateCommand TopmostDelegateCommand { get; private set; }
         #endregion
         #region file
@@ -277,6 +298,20 @@ namespace wxApp.ViewModels
             set { SetProperty(ref _dynamicVisibilityProperty, value); }
         }
 
+        private Visibility _rightVisibilityProperty;
+
+        public Visibility RightVisibilityProperty
+        {
+            get { return _rightVisibilityProperty; }
+            set { SetProperty(ref _rightVisibilityProperty, value); }
+        }
+        private Visibility _contactDetailsVisibilityProperty;
+
+        public Visibility ContactDetailsVisibilityProperty
+        {
+            get { return _contactDetailsVisibilityProperty; }
+            set { SetProperty(ref _contactDetailsVisibilityProperty, value); }
+        }
         private bool _topmostProperty;
         //设置窗口在最上方
         public bool TopmostProperty
@@ -284,7 +319,7 @@ namespace wxApp.ViewModels
             get { return _topmostProperty; }
             set { SetProperty(ref _topmostProperty, value); }
         }
-        
+
         #endregion
     }
 }

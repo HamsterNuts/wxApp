@@ -45,14 +45,16 @@
                 <ListView Padding="0"  ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Cursor="Hand" ItemsSource="{Binding HandContactData}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <ListViewItem Height="60" Padding="0" Background="#EDEAE8">
-                                <StackPanel Orientation="Horizontal" Margin="10 0">
-                                    <Image Cursor="Hand" Width="50" Height="50" Source="{Binding ImageProperty}" Margin="0,10,5,10" />
-                                    <StackPanel Width="86" Orientation="Vertical" VerticalAlignment="Center" Margin="15,0">
-                                        <TextBlock Text="{Binding NameProperty}" FontSize="20" Foreground="Black" />
+                            <Button Command="{Binding }" CommandParameter="{Binding }"  Background="#EDEAE8">
+                                <ListViewItem Height="60" Padding="0" Background="#EDEAE8">
+                                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                                        <Image Cursor="Hand" Width="50" Height="50" Source="{Binding ImageProperty}" Margin="0,10,5,10" />
+                                        <StackPanel Width="86" Orientation="Vertical" VerticalAlignment="Center" Margin="15,0">
+                                            <TextBlock Text="{Binding NameProperty}" FontSize="20" Foreground="Black" />
+                                        </StackPanel>
                                     </StackPanel>
-                                </StackPanel>
-                            </ListViewItem>
+                                </ListViewItem>
+                            </Button>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                     <!--<ListView.View>

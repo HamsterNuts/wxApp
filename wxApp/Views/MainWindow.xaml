@@ -42,7 +42,7 @@
             <ContentControl Grid.Row="1" prism:RegionManager.RegionName="ContentRegionOfCenter"  Visibility="{Binding CenterVisibilityProperty}"/>
             <ContentControl Grid.Row="1" prism:RegionManager.RegionName="ContentRegionOfDynamic" Visibility="{Binding DynamicVisibilityProperty}" />
 
-            <!--<ContentControl Grid.Row="1" x:Name="ContentRegionOfCenterControl" prism:RegionManager.RegionName="{Binding ContentRegionOfCenterProperty}" />-->
+            <!--<ContentControl Grid.Row="1" x:Name="ContentRegionOfCenterControl" prism:RegionManager.RegionName="{Binding ContentRegionOfCenterProperty,Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True}" />-->
         </Grid>
         <Grid Grid.Column="2" >
             <Grid.RowDefinitions>
@@ -90,7 +90,9 @@
                     </Button>
                 </Grid>
             </StackPanel >
-            <ContentControl Background="#F5F5F5" Grid.Row="1" prism:RegionManager.RegionName="{Binding ContentRegionOfRightProperty,Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True}"  />
+            <!--<ContentControl Background="#F5F5F5" Grid.Row="1" prism:RegionManager.RegionName="{Binding ContentRegionOfRightProperty,Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True}"  />-->
+            <ContentControl Grid.Row="1" prism:RegionManager.RegionName="ContentRegionOfRight"  Visibility="{Binding RightVisibilityProperty}"/>
+            <ContentControl Grid.Row="1" prism:RegionManager.RegionName="ContentRegionOfContactDetails" Visibility="{Binding ContactDetailsVisibilityProperty}" />
         </Grid>
     </Grid>
 </Controls:MetroWindow>
