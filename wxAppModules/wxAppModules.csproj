@@ -94,6 +94,7 @@
     <Compile Include="ViewModels\MainOfLeftViewUserControlViewModel.cs" />
     <Compile Include="ViewModels\MainOfRightViewUserControlViewModel.cs" />
     <Compile Include="ViewModels\SearchUserControlViewModel.cs" />
+    <Compile Include="ViewModels\TheContactDetailsUserControlViewModel.cs" />
     <Compile Include="Views\CurrentUserInfoUserControl.xaml.cs">
       <DependentUpon>CurrentUserInfoUserControl.xaml</DependentUpon>
     </Compile>

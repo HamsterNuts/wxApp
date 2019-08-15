@@ -32,7 +32,7 @@
                     </ListViewItem>
                     <ListViewItem Height="60" Padding="0" Background="#EDEAE8">
                         <StackPanel Orientation="Horizontal" Margin="10 0">
-                            <Image Cursor="Hand" Width="50" Height="50" Source="/Images/head7.jpg" Margin="0,10,5,10" />
+                            <Image Cursor="Hand" Width="50" Height="50" Source="/Images/head5.jpg" Margin="0,10,5,10" />
                             <StackPanel Width="86" Orientation="Vertical" VerticalAlignment="Center" Margin="15,0">
                                 <TextBlock Text="公众号" FontSize="20" Foreground="Black" />
                             </StackPanel>
@@ -41,20 +41,22 @@
                 </ListView>
                 <ListViewItem Background="#EDEAE8">
                     <TextBlock  Text="联系人" FontSize="15" Foreground="#808080" Background="#EDEAE8" Padding="0" Margin="0"  />
+                
                 </ListViewItem>
-                <ListView Padding="0"  ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Cursor="Hand" ItemsSource="{Binding HandContactData}">
+                <!--<Button Content="123" Command="{Binding TheContactDetailsCommand}"  />-->
+                <ListView Padding="0" Background="#EDEAE8"  ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Cursor="Hand" ItemsSource="{Binding HandContactData}"  SelectedItem="{Binding SelectedHandContact}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Button Command="{Binding }" CommandParameter="{Binding }"  Background="#EDEAE8">
-                                <ListViewItem Height="60" Padding="0" Background="#EDEAE8">
-                                    <StackPanel Orientation="Horizontal" Margin="10 0">
-                                        <Image Cursor="Hand" Width="50" Height="50" Source="{Binding ImageProperty}" Margin="0,10,5,10" />
-                                        <StackPanel Width="86" Orientation="Vertical" VerticalAlignment="Center" Margin="15,0">
-                                            <TextBlock Text="{Binding NameProperty}" FontSize="20" Foreground="Black" />
-                                        </StackPanel>
+                            <!--<ListViewItem Height="60" Padding="0" Background="#EDEAE8">-->
+                            <StackPanel Background="#EDEAE8" Orientation="Horizontal" Margin="-5">
+                                    <Image Cursor="Hand" Width="50" Height="50" Source="{Binding ImageProperty}" Margin="10,10,5,10" />
+                                    <StackPanel Width="86" Orientation="Vertical" VerticalAlignment="Center" Margin="15,0">
+                                        <TextBlock Text="{Binding NameProperty}" FontSize="20" Foreground="Black" />
                                     </StackPanel>
-                                </ListViewItem>
-                            </Button>
+                                </StackPanel>
+                                    <!--<Image Cursor="Hand" Width="50" Height="50" Source="{Binding ImageProperty}"  />-->
+                                    <!--<TextBlock Text="{Binding NameProperty}" FontSize="20" Foreground="Black" />-->
+                            <!--</ListViewItem>-->
                         </DataTemplate>
                     </ListView.ItemTemplate>
                     <!--<ListView.View>

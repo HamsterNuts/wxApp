@@ -17,4 +17,8 @@ namespace wxAppHelper.UsingEventAggregator
     public class DetailsSentEvent : PubSubEvent<string>
     {
     }
+
+    public class TheContactDetailsSentEvent : PubSubEvent<int?>
+    {
+    }
 }

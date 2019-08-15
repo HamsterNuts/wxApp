@@ -45,40 +45,49 @@ namespace wxApp.ViewModels
             _ea.GetEvent<MessageSentEvent>().Subscribe(MessageReceived);
             _ea.GetEvent<SearcchSentEvent>().Subscribe(SearcchReceived);
             _ea.GetEvent<DetailsSentEvent>().Subscribe(DetailsReceived);
+            _ea.GetEvent<TheContactDetailsSentEvent>().Subscribe(TheContactDetailsReceived);
         }
         #region method
-        //public async Task<MessageDialogResult>  ShowMessageButtonDialog(string header, string message)
-        //{
-        //    var mySettings = new MetroDialogSettings()
-        //    {
-        //        AffirmativeButtonText = "确定",
-        //        NegativeButtonText = "取消",
-        //        ColorScheme = MetroDialogColorScheme.Accented
-        //    };
+        public void TheContactDetailsReceived(int?  value)
+        {
+            if (value > 0)
+            {
+                ContactDetailsVisibilityProperty = Visibility.Visible;
+                RightVisibilityProperty = Visibility.Hidden;
+            }
+        }
+            //public async Task<MessageDialogResult>  ShowMessageButtonDialog(string header, string message)
+            //{
+            //    var mySettings = new MetroDialogSettings()
+            //    {
+            //        AffirmativeButtonText = "确定",
+            //        NegativeButtonText = "取消",
+            //        ColorScheme = MetroDialogColorScheme.Accented
+            //    };
 
-        //    var result =  await dialogCoordinator.ShowMessageAsync(this,header, message, MessageDialogStyle.AffirmativeAndNegative, mySettings);
-        //    return result;
+            //    var result =  await dialogCoordinator.ShowMessageAsync(this,header, message, MessageDialogStyle.AffirmativeAndNegative, mySettings);
+            //    return result;
 
-        //}
-        ///// <summary>
-        ///// 显示弹框
-        ///// </summary>
-        //public async void ShowMessageDialog(string header,string message)
-        //{
-        //    await dialogCoordinator.ShowMessageAsync(this, header, message);
-        //}
+            //}
+            ///// <summary>
+            ///// 显示弹框
+            ///// </summary>
+            //public async void ShowMessageDialog(string header,string message)
+            //{
+            //    await dialogCoordinator.ShowMessageAsync(this, header, message);
+            //}
 
-        //private async void RunProgressFromVm(string header, string message)
-        //{
-        //    var controller = await dialogCoordinator.ShowProgressAsync(this, header, message);
-        //    controller.SetIndeterminate();
+            //private async void RunProgressFromVm(string header, string message)
+            //{
+            //    var controller = await dialogCoordinator.ShowProgressAsync(this, header, message);
+            //    controller.SetIndeterminate();
 
-        //    await TaskEx.Delay(3000);
+            //    await TaskEx.Delay(3000);
 
-        //    await controller.CloseAsync();
-        //}
+            //    await controller.CloseAsync();
+            //}
 
-        public void DetailsReceived(string details)
+            public void DetailsReceived(string details)
         {
             switch (details)
             {

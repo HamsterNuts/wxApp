@@ -1,4 +1,5 @@
-﻿using Prism.Events;
+﻿using Prism.Commands;
+using Prism.Events;
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
@@ -17,8 +18,14 @@ namespace wxAppModules.ViewModels
         {
             _ea = ea;
             HandContactData = wxAppHelper.Helper.InitializeData.HandContactData;
+            TheContactDetailsCommand = new DelegateCommand<int?>(TheContactDetailsMethod);
+            //TheContactDetailsCommand = new DelegateCommand<int?>(TheContactDetailsMethod).ObservesCanExecute(() => true);
             //InitializeData();
             _ea.GetEvent<SearcchSentEvent>().Subscribe(SearcchReceived);
+        }
+        public void TheContactDetailsMethod(int? value)
+        {
+            _ea.GetEvent<TheContactDetailsSentEvent>().Publish(value);
         }
         //public void InitializeData()
         //{
@@ -75,6 +82,26 @@ namespace wxAppModules.ViewModels
             set { SetProperty(ref _handContactData, value); }
         }
 
+        private HandContactViewModel _selectedHandContact;
+
+        public HandContactViewModel SelectedHandContact
+        {
+            get  { return _selectedHandContact; }
+            set { SetProperty(ref _selectedHandContact, value);
+                TheContactDetailsMethod(_selectedHandContact.IdProperty);
+            }
+        }
+
+        private int _selectIndexProperty;
+        public int SelectIndexProperty
+        {
+            get { return _selectIndexProperty; }
+            set { SetProperty(ref _selectIndexProperty, value); }
+        }
+        #endregion
+
+        #region Command
+        public DelegateCommand<int?> TheContactDetailsCommand { get; private set; }
         #endregion
     }
 }
