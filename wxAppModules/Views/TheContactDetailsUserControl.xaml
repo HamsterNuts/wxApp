@@ -9,16 +9,16 @@
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True"
              Width="320">
-    <Grid>
+    <Grid DataContext="{Binding HandContactProperty,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
         <StackPanel Orientation="Vertical">
             <StackPanel Height="40" />
             <StackPanel Orientation="Horizontal">
                 <StackPanel>
-                    <TextBlock Text="rain" FontSize="24" Foreground="Black" VerticalAlignment="Top" Margin="20,0,0,0"/>
-                    <TextBlock Text="这是一场好雨！！" FontSize="18" Foreground="Black" VerticalAlignment="Bottom" Margin="20,0,0,0" />
+                    <TextBlock Text="{Binding NameProperty,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontSize="24" Foreground="Black" VerticalAlignment="Top" Margin="20,0,0,0"/>
+                    <TextBlock Text="{Binding SignatureProperty,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontSize="18" Foreground="Black" VerticalAlignment="Bottom" Margin="20,0,0,0" />
                 </StackPanel>
                 <StackPanel>
-                    <Image Cursor="Hand" Width="50" Height="50" Source="/Images/head2.jpg" Margin="60,0,0,0" />
+                    <Image Cursor="Hand" Width="50" Height="50" Source="{Binding ImageProperty,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="60,0,0,0" />
                 </StackPanel>
             </StackPanel>
             <StackPanel Height="40" />
@@ -26,16 +26,20 @@
             <StackPanel Height="20" />
             <StackPanel  Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="备   注：   "  FontSize="19" Foreground="Black" VerticalAlignment="Top" Margin="20,0,0,0"/>
-                    <TextBox Text="点击添加备注" FontSize="15" Foreground="Black" Margin="0,-2,0,0"></TextBox>
+                    <TextBlock Text="备   注：   "   FontSize="19" Foreground="Black" VerticalAlignment="Top" Margin="20,0,0,0"/>
+                    <TextBox Width="120" Text="{Binding NoteProperty,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontSize="15" Foreground="Black" Margin="0,-2,0,0"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="微信号：   "  FontSize="19" Foreground="Black" VerticalAlignment="Top" Margin="20,0,0,0"/>
-                    <TextBlock Text="123129u548y85" FontSize="19" Foreground="Black" VerticalAlignment="Top" />
+                    <TextBlock Text="{Binding WxNumberProperty,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontSize="19" Foreground="Black" VerticalAlignment="Top" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="来   源：   " FontSize="19" Foreground="Black" VerticalAlignment="Top" Margin="20,0,0,0"/>
-                    <TextBlock Text="来自群聊添加" FontSize="19" Foreground="Black" VerticalAlignment="Top" />
+                    <TextBlock Text="{Binding SourceProperty,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontSize="19" Foreground="Black" VerticalAlignment="Top" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="地   址：   " FontSize="19" Foreground="Black" VerticalAlignment="Top" Margin="20,0,0,0"/>
+                    <TextBlock Text="{Binding AddressProperty,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontSize="19" Foreground="Black" VerticalAlignment="Top" />
                 </StackPanel>
             </StackPanel>
             <StackPanel Height="20" />

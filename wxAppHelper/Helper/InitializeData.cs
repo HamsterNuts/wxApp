@@ -31,11 +31,11 @@ namespace wxAppHelper.Helper
                 NameProperty = "张三",
                 ImageProperty = "/Images/head6.jpg",
                 SexProperty = 1,
-                SignatureProperty = "一场好大的雨",
-                NoteProperty = "朋友",
-                WxNumberProperty = "wxid_l7csinw4yqjn21",
+                SignatureProperty = "昨天又挂大风了",
+                NoteProperty = "亲人",
+                WxNumberProperty = "wxid_l123w4yqjn21",
                 SourceProperty = "通过群聊添加",
-                AddressProperty = "江苏 南通"
+                AddressProperty = "上海 青浦"
             };
             HandContactData.Add(handContact0);
             HandContactData.Add(handContact1);

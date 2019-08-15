@@ -30,7 +30,10 @@ namespace wxApp.Views
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                this.DragMove();
+                Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    this.DragMove();
+                }));
             }
         }
 
@@ -38,9 +41,13 @@ namespace wxApp.Views
         {
             if ((bool)e.NewValue == false)
             {
-                this.Close();
+                Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    this.Close();
+                }));
+
             }
         }
     }
- 
+
 }

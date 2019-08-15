@@ -29,7 +29,7 @@ namespace wxApp.ViewModels
             MessageReceived("message");
             DetailsReceived("chat");
             WindowStateProperty = WindowState.Normal;
-            Title = "WXApp";
+            TitleProperty = "WXApp";
 
             ContentRegionOfLeftProperty = "ContentRegionOfLeft";
             ContentRegionOfSearchProperty = "ContentRegionOfSearch";
@@ -48,7 +48,7 @@ namespace wxApp.ViewModels
             _ea.GetEvent<TheContactDetailsSentEvent>().Subscribe(TheContactDetailsReceived);
         }
         #region method
-        public void TheContactDetailsReceived(int?  value)
+        public void TheContactDetailsReceived(int? value)
         {
             if (value > 0)
             {
@@ -56,38 +56,38 @@ namespace wxApp.ViewModels
                 RightVisibilityProperty = Visibility.Hidden;
             }
         }
-            //public async Task<MessageDialogResult>  ShowMessageButtonDialog(string header, string message)
-            //{
-            //    var mySettings = new MetroDialogSettings()
-            //    {
-            //        AffirmativeButtonText = "确定",
-            //        NegativeButtonText = "取消",
-            //        ColorScheme = MetroDialogColorScheme.Accented
-            //    };
+        //public async Task<MessageDialogResult>  ShowMessageButtonDialog(string header, string message)
+        //{
+        //    var mySettings = new MetroDialogSettings()
+        //    {
+        //        AffirmativeButtonText = "确定",
+        //        NegativeButtonText = "取消",
+        //        ColorScheme = MetroDialogColorScheme.Accented
+        //    };
 
-            //    var result =  await dialogCoordinator.ShowMessageAsync(this,header, message, MessageDialogStyle.AffirmativeAndNegative, mySettings);
-            //    return result;
+        //    var result =  await dialogCoordinator.ShowMessageAsync(this,header, message, MessageDialogStyle.AffirmativeAndNegative, mySettings);
+        //    return result;
 
-            //}
-            ///// <summary>
-            ///// 显示弹框
-            ///// </summary>
-            //public async void ShowMessageDialog(string header,string message)
-            //{
-            //    await dialogCoordinator.ShowMessageAsync(this, header, message);
-            //}
+        //}
+        ///// <summary>
+        ///// 显示弹框
+        ///// </summary>
+        //public async void ShowMessageDialog(string header,string message)
+        //{
+        //    await dialogCoordinator.ShowMessageAsync(this, header, message);
+        //}
 
-            //private async void RunProgressFromVm(string header, string message)
-            //{
-            //    var controller = await dialogCoordinator.ShowProgressAsync(this, header, message);
-            //    controller.SetIndeterminate();
+        //private async void RunProgressFromVm(string header, string message)
+        //{
+        //    var controller = await dialogCoordinator.ShowProgressAsync(this, header, message);
+        //    controller.SetIndeterminate();
 
-            //    await TaskEx.Delay(3000);
+        //    await TaskEx.Delay(3000);
 
-            //    await controller.CloseAsync();
-            //}
+        //    await controller.CloseAsync();
+        //}
 
-            public void DetailsReceived(string details)
+        public void DetailsReceived(string details)
         {
             switch (details)
             {
@@ -101,8 +101,8 @@ namespace wxApp.ViewModels
                     break;
 
             }
-          
-           
+
+
         }
         public void SearcchReceived(string search)
         {
@@ -184,8 +184,8 @@ namespace wxApp.ViewModels
         }
         public void Execute()
         {
-            Title = "change";
-            MessageBox.Show(Title);
+            TitleProperty = "change";
+            MessageBox.Show(TitleProperty);
         }
 
         public bool CanExecute()
@@ -217,12 +217,12 @@ namespace wxApp.ViewModels
         public DelegateCommand TopmostDelegateCommand { get; private set; }
         #endregion
         #region file
-        private string _title;
+        private string _titleProperty;
 
-        public string Title
+        public string TitleProperty
         {
-            get { return _title; }
-            set { SetProperty(ref _title, value); }
+            get { return _titleProperty; }
+            set { SetProperty(ref _titleProperty, value); }
         }
 
         private bool _isLoginFailed;
