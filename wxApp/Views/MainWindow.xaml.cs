@@ -30,12 +30,20 @@ namespace wxApp.Views
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                Dispatcher.BeginInvoke(new Action(() =>
+                try
                 {
-                    this.DragMove();
-                }));
+                    Dispatcher.BeginInvoke(new Action(() =>
+                    {
+                        this.DragMove();
+                    }));
+                }
+                catch
+                {
+
+                }
             }
         }
+
 
         private void LoginWindow_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
         {

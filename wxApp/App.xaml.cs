@@ -12,9 +12,12 @@ namespace wxApp
     /// </summary>
     public partial class App : PrismApplication
     {
-        protected override Window CreateShell()
+        public App()
         {
             wxAppHelper.Helper.InitializeData.Initialize();
+        }
+        protected override Window CreateShell()
+        {
             return Container.Resolve<MainWindow>();
         }
 
