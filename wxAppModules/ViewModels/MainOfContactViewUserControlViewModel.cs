@@ -25,7 +25,6 @@ namespace wxAppModules.ViewModels
         }
         public void TheContactDetailsMethod(int? value)
         {
-            throw new ArgumentNullException("这是故意抛出的异常");
             _ea.GetEvent<TheContactDetailsSentEvent>().Publish(value);
         }
         //public void InitializeData()
