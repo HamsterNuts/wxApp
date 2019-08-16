@@ -1,27 +1,33 @@
-﻿using Prism.Mvvm;
+﻿using Prism.Events;
+using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using wxAppHelper.UsingEventAggregator;
 using wxAppHelper.ViewModel;
 
 namespace wxAppModules.ViewModels
 {
-   public class MainOfCenterViewUserControlViewModel:BindableBase
+    public class MainOfCenterViewUserControlViewModel : BindableBase
     {
-        public MainOfCenterViewUserControlViewModel()
+        IEventAggregator _ea;
+        public MainOfCenterViewUserControlViewModel(IEventAggregator ea)
         {
-            var userId = 1;
-            var chatRecord = wxAppHelper.Helper.InitializeData.HandChatRecordData.Where(x=>x.SourceIdProperty==userId).OrderByDescending(x=>x.RecordDateTime).GroupBy(x=>x.TargetIdProperty, (key, group) => group.First()).ToList();
+            _ea = ea;
+            var chatRecord = wxAppHelper.Helper.InitializeData.HandChatRecordData.Where(x => x.SourceIdProperty == wxAppHelper.Helper.InitializeData.TheCurrentUserId).OrderByDescending(x => x.RecordDateTime).GroupBy(x => x.TargetIdProperty, (key, group) => group.First()).ToList();
 
             HandChatNewestRecordData = chatRecord.Select(x => new HandChatNewestRecordViewModel()
             {
-                IdProperty=1,
-                ContactIdProperty=x.TargetIdProperty,
-                ContentProperty=x.ContentProperty,
-                RecordDateTimeProperty =x.RecordDateTime
+                IdProperty = 1,
+                ContactIdProperty = x.TargetIdProperty,
+                ContentProperty = x.ContentProperty,
+                RecordDateTimeProperty = x.RecordDateTime
             }).ToList();
+            SelectedChatNewestRecord = HandChatNewestRecordData.FirstOrDefault();
+
+
         }
         #region Property
         private List<HandChatNewestRecordViewModel> _handChatNewestRecordData;
@@ -35,7 +41,11 @@ namespace wxAppModules.ViewModels
         public HandChatNewestRecordViewModel SelectedChatNewestRecord
         {
             get { return _selectedChatNewestRecord; }
-            set { SetProperty(ref _selectedChatNewestRecord, value); }
+            set
+            {
+                SetProperty(ref _selectedChatNewestRecord, value);
+                _ea.GetEvent<TheContactChatRecordSentEvent>().Publish(_selectedChatNewestRecord.ContactIdProperty);
+            }
         }
         #endregion
     }

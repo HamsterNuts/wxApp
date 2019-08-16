@@ -9,6 +9,7 @@ namespace wxAppHelper.Helper
 {
    public static class InitializeData
     {
+        public static int TheCurrentUserId = 1;
         public static List<HandContactViewModel> HandContactData;
 
         public static List<HandChatRecordViewModel> HandChatRecordData;

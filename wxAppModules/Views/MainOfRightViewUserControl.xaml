@@ -17,7 +17,7 @@
                         <ColumnDefinition Width="9*"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Margin="20,0,0,0" Text="糖宝" FontSize="20" Foreground="Black" HorizontalAlignment="Left"/>
+                    <TextBlock Grid.Column="0" Margin="20,0,0,0" Text="{Binding NameProperty}" FontSize="20" Foreground="Black" HorizontalAlignment="Left"/>
                     <Button Grid.Column="1" Width="24" Height="24" HorizontalAlignment="Right" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" materialDesign:ShadowAssist.ShadowDepth="Depth1">
                         <Canvas Width="24" Height="24" Margin="-10">
                             <Path Data="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z" Fill="Black" />

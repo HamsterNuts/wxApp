@@ -21,4 +21,9 @@ namespace wxAppHelper.UsingEventAggregator
     public class TheContactDetailsSentEvent : PubSubEvent<int?>
     {
     }
+
+    public class TheContactChatRecordSentEvent : PubSubEvent<int?>
+    {
+
+    }
 }
