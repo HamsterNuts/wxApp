@@ -14,50 +14,17 @@
     <Grid>
         <StackPanel VerticalAlignment="Top">
             <StackPanel Background="Black">
-                <ListView  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                          Cursor="Hand">
-                    <ListViewItem Height="60" Padding="0" Background="#EDEAE8">
-                        <StackPanel Orientation="Horizontal" Margin="10 0">
-                            <Image Cursor="Hand" Width="50" Height="50" Source="/Images/head2.jpg" Margin="0,10,5,10" />
-                            <StackPanel Width="86" Orientation="Vertical" VerticalAlignment="Center" Margin="5,0">
-                                <TextBlock Text="糖宝" FontSize="15" Foreground="Black" />
-                                <TextBlock Margin="0 2 0 0" FontSize="12" Text="Hello Word" />
-                            </StackPanel>
-
-                            <StackPanel  Orientation="Vertical" VerticalAlignment="Center" Margin="5,0">
-                                <TextBlock Text="14:22" FontSize="12" Foreground="Black" HorizontalAlignment="Right"/>
-                                <TextBlock Margin="0 2 0 0" FontSize="12" Text="" />
-                            </StackPanel>
-                        </StackPanel>
-                    </ListViewItem>
-
-                    <ListViewItem Height="60" Padding="0" Background="#EDEAE8">
-                        <StackPanel Orientation="Horizontal" Margin="10 0">
-                            <Image Cursor="Hand" Width="50" Height="50" Source="/Images/head3.jpg" Margin="0,10,5,10" />
-                            <StackPanel Width="86" Orientation="Vertical" VerticalAlignment="Center" Margin="5,0">
-                                <TextBlock Text="潘多拉" FontSize="15" Foreground="Black" />
-                                <TextBlock Margin="0 2 0 0" FontSize="12" Text="你好" />
-                            </StackPanel>
-
-                            <StackPanel  Orientation="Vertical" VerticalAlignment="Center" Margin="5,0">
-                                <TextBlock Text="14:32" FontSize="12" Foreground="Black" HorizontalAlignment="Right"/>
-                                <TextBlock Margin="0 2 0 0" FontSize="12" Text="" />
-                            </StackPanel>
-                        </StackPanel>
-                    </ListViewItem>
-                </ListView>
-
-                <ListView Padding="0" Background="#EDEAE8"  ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Cursor="Hand" ItemsSource="{Binding HandContactData}"  SelectedItem="{Binding SelectedHandContact}">
+                <ListView Padding="0" Background="#EDEAE8"  ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Cursor="Hand" ItemsSource="{Binding HandChatNewestRecordData}"  SelectedItem="{Binding SelectedChatNewestRecord}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal" Margin="10 0">
-                                <Image Cursor="Hand" Width="50" Height="50" Source="/Images/head3.jpg" Margin="0,10,5,10" />
+                            <StackPanel Background="#EDEAE8" Orientation="Horizontal" Margin="-5">
+                                <Image Cursor="Hand" Width="50" Height="50" Source="{Binding ContactImageProperty}" Margin="10,10,5,10" />
                                 <StackPanel Width="86" Orientation="Vertical" VerticalAlignment="Center" Margin="5,0">
-                                    <TextBlock Text="潘多拉" FontSize="15" Foreground="Black" />
-                                    <TextBlock Margin="0 2 0 0" FontSize="12" Text="你好" />
+                                    <TextBlock Text="{Binding ContactNameProperty}" FontSize="15" Foreground="Black" />
+                                    <TextBlock Margin="0 2 0 0" FontSize="12" Text="{Binding ContentProperty}" />
                                 </StackPanel>
                                 <StackPanel  Orientation="Vertical" VerticalAlignment="Center" Margin="5,0">
-                                    <TextBlock Text="14:32" FontSize="12" Foreground="Black" HorizontalAlignment="Right"/>
+                                    <TextBlock Text="{Binding StrRecordDateTimeProperty}" FontSize="12" Foreground="Black" HorizontalAlignment="Right"/>
                                     <TextBlock Margin="0 2 0 0" FontSize="12" Text="" />
                                 </StackPanel>
                             </StackPanel>

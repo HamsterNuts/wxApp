@@ -39,8 +39,21 @@ namespace wxAppHelper.Helper
                 SourceProperty = "通过群聊添加",
                 AddressProperty = "上海 青浦"
             };
+            var handContact2 = new HandContactViewModel()
+            {
+                IdProperty = 3,
+                NameProperty = "张四",
+                ImageProperty = "/Images/head3.jpg",
+                SexProperty = 1,
+                SignatureProperty = "昨天又挂大风了",
+                NoteProperty = "亲人",
+                WxNumberProperty = "wxid_l123w4yqjn21",
+                SourceProperty = "通过群聊添加",
+                AddressProperty = "上海 青浦"
+            };
             HandContactData.Add(handContact0);
             HandContactData.Add(handContact1);
+            HandContactData.Add(handContact2);
             return HandContactData;
         }
 
@@ -55,7 +68,6 @@ namespace wxAppHelper.Helper
                 ContentProperty = "你好啊",
                 RecordDateTime = DateTime.Now
             };
-
             var handChatRecord1 = new HandChatRecordViewModel()
             {
                 IdProperty = 2,
@@ -64,8 +76,17 @@ namespace wxAppHelper.Helper
                 ContentProperty = "我很好",
                 RecordDateTime = DateTime.Now
             };
+            var handChatRecord2 = new HandChatRecordViewModel()
+            {
+                IdProperty = 1,
+                SourceIdProperty = 1,
+                TargetIdProperty = 3,
+                ContentProperty = "你好啊",
+                RecordDateTime = DateTime.Now
+            };
             HandChatRecordData.Add(handChatRecord0);
             HandChatRecordData.Add(handChatRecord1);
+            HandChatRecordData.Add(handChatRecord2);
             return HandChatRecordData;
         }
 
