@@ -10,6 +10,8 @@ namespace wxAppHelper.Helper
    public static class InitializeData
     {
         public static List<HandContactViewModel> HandContactData;
+
+        public static List<HandChatRecordViewModel> HandChatRecordData;
         public static List<HandContactViewModel> HandContactInitializeData()
         {
            var HandContactData = new List<HandContactViewModel>();
@@ -42,9 +44,35 @@ namespace wxAppHelper.Helper
             return HandContactData;
         }
 
+        public static List<HandChatRecordViewModel> HandChatRecordInitializeData()
+        {
+            var HandChatRecordData = new List<HandChatRecordViewModel>();
+            var handChatRecord0 = new HandChatRecordViewModel()
+            {
+                IdProperty = 1,
+                SourceIdProperty = 1,
+                TargetIdProperty = 2,
+                ContentProperty = "你好啊",
+                RecordDateTime = DateTime.Now
+            };
+
+            var handChatRecord1 = new HandChatRecordViewModel()
+            {
+                IdProperty = 2,
+                SourceIdProperty = 2,
+                TargetIdProperty = 1,
+                ContentProperty = "我很好",
+                RecordDateTime = DateTime.Now
+            };
+            HandChatRecordData.Add(handChatRecord0);
+            HandChatRecordData.Add(handChatRecord1);
+            return HandChatRecordData;
+        }
+
         public static void Initialize()
         {
             HandContactData = HandContactInitializeData();
+            HandChatRecordData = HandChatRecordInitializeData();
         }
     }
 }
