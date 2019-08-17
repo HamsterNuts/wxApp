@@ -47,24 +47,14 @@
                 <ListView Padding="0" Background="#EDEAE8"  ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Cursor="Hand" ItemsSource="{Binding HandContactData}"  SelectedItem="{Binding SelectedHandContact}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <!--<ListViewItem Height="60" Padding="0" Background="#EDEAE8">-->
                             <StackPanel Background="#EDEAE8" Orientation="Horizontal" Margin="-5">
-                                    <Image Cursor="Hand" Width="50" Height="50" Source="{Binding ImageProperty}" Margin="10,10,5,10" />
-                                    <StackPanel Width="86" Orientation="Vertical" VerticalAlignment="Center" Margin="15,0">
-                                        <TextBlock Text="{Binding NameProperty}" FontSize="20" Foreground="Black" />
-                                    </StackPanel>
+                                <Image Cursor="Hand" Width="50" Height="50" Source="{Binding ImageProperty}" Margin="10,10,5,10" />
+                                <StackPanel Width="86" Orientation="Vertical" VerticalAlignment="Center" Margin="15,0">
+                                    <TextBlock Text="{Binding NameProperty}" FontSize="20" Foreground="Black" />
                                 </StackPanel>
-                                    <!--<Image Cursor="Hand" Width="50" Height="50" Source="{Binding ImageProperty}"  />-->
-                                    <!--<TextBlock Text="{Binding NameProperty}" FontSize="20" Foreground="Black" />-->
-                            <!--</ListViewItem>-->
+                            </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
-                    <!--<ListView.View>
-                        <GridView>
-                            <GridViewColumn  Width="60" DisplayMemberBinding="{Binding NameProperty}"></GridViewColumn>
-                            <GridViewColumn  Width="60" DisplayMemberBinding="{Binding ImageProperty}"></GridViewColumn>
-                        </GridView>
-                    </ListView.View>-->
                 </ListView>
             </StackPanel>
         </StackPanel>
