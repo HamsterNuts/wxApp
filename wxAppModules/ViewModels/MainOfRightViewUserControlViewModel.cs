@@ -17,6 +17,7 @@ namespace wxAppModules.ViewModels
         {
             _ea = ea;
             _ea.GetEvent<TheContactChatRecordSentEvent>().Subscribe(TheContactChatRecordReceived);
+            TheContactChatRecordReceived(1);
         }
         #region method
         public void TheContactChatRecordReceived(int? contactId)

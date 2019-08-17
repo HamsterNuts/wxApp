@@ -120,12 +120,16 @@ namespace wxApp.ViewModels
                     CenterVisibilityProperty = Visibility.Visible;
                     ContactVisibilityProperty = Visibility.Hidden;
                     DynamicVisibilityProperty = Visibility.Hidden;
+                    RightVisibilityProperty = Visibility.Visible;
+                    ContactDetailsVisibilityProperty = Visibility.Hidden;
                     break;
                 case "contact":
                     ContentRegionOfCenterProperty = "ContentRegionOfContact";
                     CenterVisibilityProperty = Visibility.Hidden;
                     ContactVisibilityProperty = Visibility.Visible;
                     DynamicVisibilityProperty = Visibility.Hidden;
+                    RightVisibilityProperty = Visibility.Hidden;
+                    ContactDetailsVisibilityProperty = Visibility.Visible;
                     break;
                 case "dynamic":
                     ContentRegionOfCenterProperty = "ContentRegionOfDynamic";

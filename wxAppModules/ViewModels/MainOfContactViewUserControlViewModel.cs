@@ -22,6 +22,7 @@ namespace wxAppModules.ViewModels
             //TheContactDetailsCommand = new DelegateCommand<int?>(TheContactDetailsMethod).ObservesCanExecute(() => true);
             //InitializeData();
             _ea.GetEvent<SearcchSentEvent>().Subscribe(SearcchReceived);
+            //SelectedHandContact = HandContactData.FirstOrDefault();
         }
         public void TheContactDetailsMethod(int? value)
         {

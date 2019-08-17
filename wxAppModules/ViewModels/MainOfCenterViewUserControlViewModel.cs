@@ -25,10 +25,17 @@ namespace wxAppModules.ViewModels
                 ContentProperty = x.ContentProperty,
                 RecordDateTimeProperty = x.RecordDateTime
             }).ToList();
-            SelectedChatNewestRecord = HandChatNewestRecordData.FirstOrDefault();
+           // SelectedChatNewestRecord = HandChatNewestRecordData.FirstOrDefault();
 
 
         }
+        #region method
+        public void PublishChatNewestRecordmethod(bool isPublish=true)
+        {
+
+
+        }
+        #endregion
         #region Property
         private List<HandChatNewestRecordViewModel> _handChatNewestRecordData;
         public List<HandChatNewestRecordViewModel> HandChatNewestRecordData

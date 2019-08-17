@@ -18,6 +18,7 @@ namespace wxAppModules.ViewModels
             _ea = ea;
             //InitializeData();
             _ea.GetEvent<TheContactDetailsSentEvent>().Subscribe(InitializeData);
+            HandContactProperty = wxAppHelper.Helper.InitializeData.HandContactData.FirstOrDefault();
         }
 
         public void InitializeData(int? value)
