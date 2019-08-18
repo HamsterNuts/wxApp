@@ -10,6 +10,16 @@
              prism:ViewModelLocator.AutoWireViewModel="True"
              Background="#EDEAE8"
              >
+    <UserControl.Resources>
+        <DataTemplate x:Key="MainOfContactViewTemplate">
+            <StackPanel Background="#EDEAE8" Orientation="Horizontal" Margin="-5">
+                <Image Cursor="Hand" Width="50" Height="50" Source="{Binding ImageProperty}" Margin="10,10,5,10" />
+                <StackPanel Width="86" Orientation="Vertical" VerticalAlignment="Center" Margin="15,0">
+                    <TextBlock Text="{Binding NameProperty}" FontSize="20" Foreground="Black" />
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
     <Grid Background="#EDEAE8">
         <StackPanel VerticalAlignment="Top" Background="#EDEAE8">
             <StackPanel Background="Black">
@@ -44,18 +54,9 @@
                 
                 </ListViewItem>
                 <!--<Button Content="123" Command="{Binding TheContactDetailsCommand}"  />-->
-                <ListView Padding="0" Background="#EDEAE8"  ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Cursor="Hand" ItemsSource="{Binding HandContactData}"  SelectedItem="{Binding SelectedHandContact}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Background="#EDEAE8" Orientation="Horizontal" Margin="-5">
-                                <Image Cursor="Hand" Width="50" Height="50" Source="{Binding ImageProperty}" Margin="10,10,5,10" />
-                                <StackPanel Width="86" Orientation="Vertical" VerticalAlignment="Center" Margin="15,0">
-                                    <TextBlock Text="{Binding NameProperty}" FontSize="20" Foreground="Black" />
-                                </StackPanel>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                <ListView Padding="0" Background="#EDEAE8"  ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Cursor="Hand" ItemsSource="{Binding HandContactData}"  SelectedItem="{Binding SelectedHandContact}" ItemTemplate="{StaticResource MainOfContactViewTemplate}" />
+
+
             </StackPanel>
         </StackPanel>
     </Grid>

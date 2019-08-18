@@ -11,26 +11,26 @@
              prism:ViewModelLocator.AutoWireViewModel="True"
              Background="#EDEAE8"
              >
+    <UserControl.Resources>
+        <DataTemplate x:Key="MainOfCenterViewTemplate">
+            <StackPanel Background="#EDEAE8" Orientation="Horizontal" Margin="-5">
+                <Image Cursor="Hand" Width="50" Height="50" Source="{Binding ContactImageProperty}" Margin="10,10,5,10" />
+                <StackPanel Width="86" Orientation="Vertical" VerticalAlignment="Center" Margin="5,0">
+                    <TextBlock Text="{Binding ContactNameProperty}" FontSize="15" Foreground="Black" />
+                    <TextBlock Margin="0 2 0 0" FontSize="12" Text="{Binding ContentProperty}" />
+                </StackPanel>
+                <StackPanel  Orientation="Vertical" VerticalAlignment="Center" Margin="5,0">
+                    <TextBlock Text="{Binding StrRecordDateTimeProperty}" FontSize="12" Foreground="Black" HorizontalAlignment="Right"/>
+                    <TextBlock Margin="0 2 0 0" FontSize="12" Text="" />
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
     <Grid>
         <StackPanel VerticalAlignment="Top">
             <StackPanel Background="Black">
-                <ListView Padding="0" Background="#EDEAE8"  ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Cursor="Hand" ItemsSource="{Binding HandChatNewestRecordData}"  SelectedItem="{Binding SelectedChatNewestRecord}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Background="#EDEAE8" Orientation="Horizontal" Margin="-5">
-                                <Image Cursor="Hand" Width="50" Height="50" Source="{Binding ContactImageProperty}" Margin="10,10,5,10" />
-                                <StackPanel Width="86" Orientation="Vertical" VerticalAlignment="Center" Margin="5,0">
-                                    <TextBlock Text="{Binding ContactNameProperty}" FontSize="15" Foreground="Black" />
-                                    <TextBlock Margin="0 2 0 0" FontSize="12" Text="{Binding ContentProperty}" />
-                                </StackPanel>
-                                <StackPanel  Orientation="Vertical" VerticalAlignment="Center" Margin="5,0">
-                                    <TextBlock Text="{Binding StrRecordDateTimeProperty}" FontSize="12" Foreground="Black" HorizontalAlignment="Right"/>
-                                    <TextBlock Margin="0 2 0 0" FontSize="12" Text="" />
-                                </StackPanel>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                <ListView Padding="0" Background="#EDEAE8"  ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Cursor="Hand" ItemsSource="{Binding HandChatNewestRecordData}"  SelectedItem="{Binding SelectedChatNewestRecord}" ItemTemplate="{StaticResource MainOfCenterViewTemplate}" />
+
             </StackPanel>
         </StackPanel>
     </Grid>
