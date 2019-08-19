@@ -51,7 +51,6 @@
                 </ListView>
                 <ListViewItem Background="#EDEAE8">
                     <TextBlock  Text="联系人" FontSize="15" Foreground="#808080" Background="#EDEAE8" Padding="0" Margin="0"  />
-                
                 </ListViewItem>
                 <!--<Button Content="123" Command="{Binding TheContactDetailsCommand}"  />-->
                 <ListView Padding="0" Background="#EDEAE8"  ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Cursor="Hand" ItemsSource="{Binding HandContactData}"  SelectedItem="{Binding SelectedHandContact}" ItemTemplate="{StaticResource MainOfContactViewTemplate}" />

@@ -9,8 +9,21 @@
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True"
              Background="#F5F5F5">
-
-    <Grid>
+    <UserControl.Resources>
+        <DataTemplate x:Key="MainOfRightViewTemplate">
+            <StackPanel Orientation="Horizontal" Margin="10 0 0 0"  Background="#F5F5F5" FlowDirection="{Binding FlowDirectionProperty}">
+                <Image Cursor="Hand" Width="50" Height="50" Source="{Binding SourceImageProperty}" Margin="0 10 0 0" VerticalAlignment="Top" />
+                <RichTextBox Margin="10" MaxWidth="300" Padding="5" IsDocumentEnabled="True" SpellCheck.IsEnabled="True" IsEnabled="False">
+                    <FlowDocument>
+                        <Paragraph>
+                            <Run Text="{Binding ContentProperty}" />
+                        </Paragraph>
+                    </FlowDocument>
+                </RichTextBox>
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid >
         <StackPanel VerticalAlignment="Top">
             <StackPanel Height="25">
                 <Grid>
@@ -27,40 +40,10 @@
                 </Grid>
             </StackPanel>
             <Separator />
-            <StackPanel>
-                
-                <ListView Padding="0" Background="#F5F5F5"  ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Cursor="Hand" ItemsSource="{Binding HandContactData}"  SelectedItem="{Binding SelectedHandContact}" IsEnabled="False">
-                    <StackPanel Orientation="Horizontal" Margin="10 0 0 0"  Background="#F5F5F5" >
-                        <TextBlock Grid.Column="0" Margin="20,0,0,0" Text="{Binding ContentProperty}" FontSize="20" Foreground="Black" HorizontalAlignment="Left"/>
-                        <Image Cursor="Hand" Width="50" Height="50" Source="/Images/head5.jpg" Margin="0 10 0 0" VerticalAlignment="Top" />
-                        <RichTextBox Margin="10" Width="300" Padding="5" IsDocumentEnabled="True" SpellCheck.IsEnabled="True" IsEnabled="False">
-                            <FlowDocument>
-                                <Paragraph>
-                                    <Run Text="Bacon ipsum dolor sit amet venison drumstick meatball ham hock corned beef. Strip steak bacon andouille pig beef short ribs." />
-                                    <Run Text="Bacon ipsum dolor sit amet venison drumstick meatball ham hock corned beef. Strip steak bacon andouille pig beef short ribs." />
-                                    <Run Text="Bacon ipsum dolor sit amet venison drumstick meatball ham hock corned beef. Strip steak bacon andouille pig beef short ribs." />
-                                </Paragraph>
-                            </FlowDocument>
-                        </RichTextBox>
-                    </StackPanel>
+            <ListView Padding="0" Background="#F5F5F5"  ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Cursor="Hand" ItemsSource="{Binding HandChatRecordData}" IsEnabled="False" ItemTemplate="{StaticResource MainOfRightViewTemplate}" />
 
-                    <StackPanel Orientation="Horizontal" Margin="10 0 0 0"  Background="#F5F5F5" FlowDirection="RightToLeft" >
-                        <TextBlock Grid.Column="0" Margin="20,0,0,0" Text="{Binding ContentProperty}" FontSize="20" Foreground="Black" HorizontalAlignment="Left"/>
-                        <Image Cursor="Hand" Width="50" Height="50" Source="/Images/head5.jpg" Margin="0 10 0 0" VerticalAlignment="Top" />
-                        <RichTextBox Margin="10" Width="300" Padding="5" IsDocumentEnabled="True" SpellCheck.IsEnabled="True" IsEnabled="False">
-                            <FlowDocument>
-                                <Paragraph>
-                                    <Run Text="Bacon ipsum dolor sit amet venison drumstick meatball ham hock corned beef. Strip steak bacon andouille pig beef short ribs." />
-                                    <Run Text="Bacon ipsum dolor sit amet venison drumstick meatball ham hock corned beef. Strip steak bacon andouille pig beef short ribs." />
-                                    <Run Text="Bacon ipsum dolor sit amet venison drumstick meatball ham hock corned beef. Strip steak bacon andouille pig beef short ribs." />
-                                </Paragraph>
-                            </FlowDocument>
-                        </RichTextBox>
-                    </StackPanel>
-                </ListView>
-            </StackPanel>
         </StackPanel>
-        <StackPanel Height="140" VerticalAlignment="Bottom">
+        <StackPanel Height="160" VerticalAlignment="Bottom">
             <Separator />
             <StackPanel Height="30">
                 <Grid>
@@ -116,23 +99,19 @@
 
                 </Grid>
             </StackPanel>
-            <StackPanel Height="110">
-                <RichTextBox Height="90"
+            <StackPanel Height="130">
+                <RichTextBox Height="100"
                              Padding="5"
                              IsDocumentEnabled="True"
                              SpellCheck.IsEnabled="True">
                     <FlowDocument>
                         <Paragraph>
-                            <!--<Hyperlink>
-                                <Run Text="Normal" />
-                            </Hyperlink>
-                            <LineBreak />
-                            <Run>Bacon ipsum dolor sit amet venison drumstick meatball ham hock corned beef. Strip steak bacon andouille pig beef short ribs.</Run>-->
+                            <Run>Bacon ipsum dolor sit amet venison drumstick meatball ham hock corned beef. Strip steak bacon andouille pig beef short ribs.</Run>
                         </Paragraph>
                     </FlowDocument>
                 </RichTextBox>
+                <Button Background="Green" Content="发送" Width="50" HorizontalAlignment="Right" Margin="0,-30,20,30" Command="" />
             </StackPanel>
-            
         </StackPanel>
     </Grid>
 </UserControl>

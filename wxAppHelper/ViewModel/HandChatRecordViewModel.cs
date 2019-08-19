@@ -9,6 +9,10 @@ namespace wxAppHelper.ViewModel
 {
     public class HandChatRecordViewModel : BindableBase
     {
+        public HandChatRecordViewModel()
+        {
+            //FlowDirectionProperty = "RightToLeft";
+        }
         private int _idProperty;
         public int IdProperty
         {
@@ -20,14 +24,19 @@ namespace wxAppHelper.ViewModel
         public int SourceIdProperty
         {
             get { return _sourceIdProperty; }
-            set { SetProperty(ref _sourceIdProperty, value); }
+            set { SetProperty(ref _sourceIdProperty, value);
+                SourceImageProperty = wxAppHelper.Helper.InitializeData.HandContactData.Where(x => x.IdProperty == value).FirstOrDefault().ImageProperty;
+                FlowDirectionProperty = (SourceIdProperty == wxAppHelper.Helper.InitializeData.TheCurrentUserId) ? "RightToLeft" : "LeftToRight";
+            }
         }
 
         private int _targetIdProperty;
         public int TargetIdProperty
         {
             get { return _targetIdProperty; }
-            set { SetProperty(ref _targetIdProperty, value); }
+            set {
+                SetProperty(ref _targetIdProperty, value);
+            }
         }
 
         private string _contentProperty;
@@ -42,6 +51,19 @@ namespace wxAppHelper.ViewModel
         {
             get { return _recordDateTime; }
             set { SetProperty(ref _recordDateTime, value); }
+        }
+
+        private string _sourceImageProperty;
+        public string SourceImageProperty
+        {
+            get { return _sourceImageProperty; }
+            set { SetProperty(ref _sourceImageProperty, value); }
+        }
+        private string _flowDirectionProperty;
+        public string FlowDirectionProperty
+        {
+            get { return _flowDirectionProperty; }
+            set { SetProperty(ref _flowDirectionProperty, value); }
         }
     }
 }

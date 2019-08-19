@@ -18,6 +18,7 @@ namespace wxAppModules.ViewModels
             _ea = ea;
             _ea.GetEvent<TheContactChatRecordSentEvent>().Subscribe(TheContactChatRecordReceived);
             TheContactChatRecordReceived(1);
+            HandChatRecordData.Add(new HandChatRecordViewModel() { IdProperty = 10, SourceIdProperty = 1, TargetIdProperty = 2, ContentProperty = "132" });
         }
         #region method
         public void TheContactChatRecordReceived(int? contactId)
@@ -25,7 +26,8 @@ namespace wxAppModules.ViewModels
            var contact = wxAppHelper.Helper.InitializeData.HandContactData.Where(x => x.IdProperty == contactId).FirstOrDefault();
            NameProperty =contact!=null? contact.NameProperty:null;
             //获取当前用户和联系人的聊天记录
-           var HandChatRecordData = wxAppHelper.Helper.InitializeData.HandChatRecordData.Where(x => (x.SourceIdProperty == contactId && x.TargetIdProperty == wxAppHelper.Helper.InitializeData.TheCurrentUserId) || (x.TargetIdProperty == contactId && x.SourceIdProperty == wxAppHelper.Helper.InitializeData.TheCurrentUserId)).ToList();
+           HandChatRecordData = wxAppHelper.Helper.InitializeData.HandChatRecordData.Where(x => (x.SourceIdProperty == contactId && x.TargetIdProperty == wxAppHelper.Helper.InitializeData.TheCurrentUserId) || (x.TargetIdProperty == contactId && x.SourceIdProperty == wxAppHelper.Helper.InitializeData.TheCurrentUserId)).ToList();
+
         }
         #endregion
         #region Property
@@ -46,6 +48,7 @@ namespace wxAppModules.ViewModels
             get { return _handChatRecordData; }
             set { SetProperty(ref _handChatRecordData, value); }
         }
+
         #endregion
     }
 }

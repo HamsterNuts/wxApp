@@ -32,7 +32,7 @@ namespace wxAppHelper.Helper
             {
                 IdProperty = 2,
                 NameProperty = "张三",
-                ImageProperty = "/Images/head6.jpg",
+                ImageProperty = "/Images/head3.jpg",
                 SexProperty = 1,
                 SignatureProperty = "昨天又挂大风了",
                 NoteProperty = "亲人",
@@ -44,7 +44,7 @@ namespace wxAppHelper.Helper
             {
                 IdProperty = 3,
                 NameProperty = "张四",
-                ImageProperty = "/Images/head3.jpg",
+                ImageProperty = "/Images/head4.jpg",
                 SexProperty = 1,
                 SignatureProperty = "昨天又挂大风了",
                 NoteProperty = "亲人",
