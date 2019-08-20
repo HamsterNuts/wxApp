@@ -13,7 +13,7 @@
         <DataTemplate x:Key="MainOfRightViewTemplate">
             <StackPanel Orientation="Horizontal" Margin="10 0 0 0"  Background="#F5F5F5" FlowDirection="{Binding FlowDirectionProperty}">
                 <Image Cursor="Hand" Width="50" Height="50" Source="{Binding SourceImageProperty}" Margin="0 10 0 0" VerticalAlignment="Top" />
-                <RichTextBox Margin="10" MaxWidth="300" Padding="5" IsDocumentEnabled="True" SpellCheck.IsEnabled="True" IsEnabled="False">
+                <RichTextBox Margin="10" Width="300" Padding="5" IsDocumentEnabled="True" SpellCheck.IsEnabled="True" IsEnabled="False">
                     <FlowDocument>
                         <Paragraph>
                             <Run Text="{Binding ContentProperty}" />
@@ -106,11 +106,11 @@
                              SpellCheck.IsEnabled="True">
                     <FlowDocument>
                         <Paragraph>
-                            <Run>Bacon ipsum dolor sit amet venison drumstick meatball ham hock corned beef. Strip steak bacon andouille pig beef short ribs.</Run>
+                            <Run Text="{Binding MessageProperty}" />
                         </Paragraph>
                     </FlowDocument>
                 </RichTextBox>
-                <Button Background="Green" Content="发送" Width="50" HorizontalAlignment="Right" Margin="0,-30,20,30" Command="" />
+                <Button Background="Green" Content="发送" Width="50" HorizontalAlignment="Right" Margin="0,-30,20,30" Command="{Binding PublishMessageDelegateCommand}" />
             </StackPanel>
         </StackPanel>
     </Grid>
