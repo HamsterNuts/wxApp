@@ -1,10 +1,12 @@
-﻿using Prism.Events;
+﻿using Newtonsoft.Json;
+using Prism.Events;
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using wxAppHelper.Helper;
 using wxAppHelper.UsingEventAggregator;
 using wxAppHelper.ViewModel;
 
@@ -16,23 +18,46 @@ namespace wxAppModules.ViewModels
         public MainOfCenterViewUserControlViewModel(IEventAggregator ea)
         {
             _ea = ea;
-            var chatRecord = wxAppHelper.Helper.InitializeData.HandChatRecordData.Where(x => x.SourceIdProperty == wxAppHelper.Helper.InitializeData.TheCurrentUserId).OrderByDescending(x => x.RecordDateTime).GroupBy(x => x.TargetIdProperty, (key, group) => group.First()).ToList();
-
-            HandChatNewestRecordData = chatRecord.Select(x => new HandChatNewestRecordViewModel()
-            {
-                IdProperty = 1,
-                ContactIdProperty = x.TargetIdProperty,
-                ContentProperty = x.ContentProperty,
-                RecordDateTimeProperty = x.RecordDateTime
-            }).ToList();
-           // SelectedChatNewestRecord = HandChatNewestRecordData.FirstOrDefault();
+            Initialize();
+            // SelectedChatNewestRecord = HandChatNewestRecordData.FirstOrDefault();
+            _ea.GetEvent<TheNotificationsSentEvent>().Subscribe(RefreshMessages);
 
 
         }
         #region method
-        public void PublishChatNewestRecordmethod(bool isPublish=true)
+        public void RefreshMessages(string message)
         {
+            var model = JsonConvert.DeserializeObject<TheNotifications>(message);
+            var HandChatRecord = new HandChatRecordViewModel()
+            {
+                IdProperty = InitializeData.HandChatRecordData.Max(x => x.IdProperty) + 1,
+                SourceIdProperty = model.SourceId,
+                TargetIdProperty = model.TargetId,
+                ContentProperty = model.Content,
+                RecordDateTime = DateTime.Now
+            };
+            InitializeData.HandChatRecordData.Add(HandChatRecord);
+            Initialize();
+        }
 
+        public void Initialize()
+        {
+            var chatRecord = wxAppHelper.Helper.InitializeData.HandChatRecordData.Where(x => x.SourceIdProperty == InitializeData.TheCurrentUserId|| x.TargetIdProperty == InitializeData.TheCurrentUserId).OrderByDescending(x => x.RecordDateTime).GroupBy(x => x.TargetIdProperty, (key, group) => group.First()).ToList();
+
+            HandChatNewestRecordData = chatRecord.Select(x => new HandChatNewestRecordViewModel()
+            {
+                IdProperty = 1,
+                ContactIdProperty = x.SourceIdProperty,
+                ContentProperty = x.ContentProperty,
+                RecordDateTimeProperty = x.RecordDateTime
+            }).Where(x=>x.ContactIdProperty!=wxAppHelper.Helper.InitializeData.TheCurrentUserId).ToList();
+            if (SelectedChatNewestRecord == null&& HandChatNewestRecordData.Count>0)
+            {
+                SelectedChatNewestRecord = HandChatNewestRecordData.FirstOrDefault();
+            }
+        }
+        public void PublishChatNewestRecordmethod(bool isPublish = true)
+        {
 
         }
         #endregion
@@ -51,6 +76,7 @@ namespace wxAppModules.ViewModels
             set
             {
                 SetProperty(ref _selectedChatNewestRecord, value);
+                if(_selectedChatNewestRecord!=null)
                 _ea.GetEvent<TheContactChatRecordSentEvent>().Publish(_selectedChatNewestRecord.ContactIdProperty);
             }
         }

@@ -135,9 +135,9 @@ namespace wxAppHelper.Helper
 
                 //Create TCP based options using the builder.
                 var options = new MqttClientOptionsBuilder()
-                    .WithClientId("client001")
-                    .WithTcpServer("192.168.137.1", 8222)
-                    .WithCredentials("username001", "psw001")
+                    .WithClientId(MqttNetInitializeData.ClientId)
+                    .WithTcpServer(MqttNetInitializeData.TcpServer, MqttNetInitializeData.TcpPort)
+                    .WithCredentials(MqttNetInitializeData.UserName, MqttNetInitializeData.Pwd)
                     //.WithTls()//服务器端没有启用加密协议，这里用tls的会提示协议异常
                     .WithCleanSession()
                     .Build();
@@ -260,7 +260,7 @@ namespace wxAppHelper.Helper
                 {
                     if (topic == item)
                     {
-                        _ea.GetEvent<TheTheNotificationsSentEvent>().Publish(payload);
+                        _ea.GetEvent<TheNotificationsSentEvent>().Publish(payload);
                     }
                 }
             }

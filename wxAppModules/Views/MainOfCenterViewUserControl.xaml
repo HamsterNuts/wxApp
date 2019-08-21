@@ -29,7 +29,7 @@
     <Grid>
         <StackPanel VerticalAlignment="Top">
             <StackPanel Background="Black">
-                <ListView Padding="0" Background="#EDEAE8"  ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Cursor="Hand" ItemsSource="{Binding HandChatNewestRecordData}"  SelectedItem="{Binding SelectedChatNewestRecord}" ItemTemplate="{StaticResource MainOfCenterViewTemplate}" />
+                <ListView Padding="0" Background="#EDEAE8"  ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Cursor="Hand" ItemsSource="{Binding HandChatNewestRecordData,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  SelectedItem="{Binding SelectedChatNewestRecord}" ItemTemplate="{StaticResource MainOfCenterViewTemplate}" />
 
             </StackPanel>
         </StackPanel>

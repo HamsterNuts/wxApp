@@ -9,7 +9,7 @@ namespace wxAppHelper.Helper
 {
    public static class InitializeData
     {
-        public static int TheCurrentUserId = 3;
+        public static int TheCurrentUserId = 1;
         public static List<HandContactViewModel> HandContactData;
 
         public static List<HandChatRecordViewModel> HandChatRecordData;
@@ -85,9 +85,19 @@ namespace wxAppHelper.Helper
                 ContentProperty = "你好啊",
                 RecordDateTime = DateTime.Now
             };
+            var handChatRecord3 = new HandChatRecordViewModel()
+            {
+                IdProperty = 1,
+                SourceIdProperty = 3,
+                TargetIdProperty = 1,
+                ContentProperty = "你好啊",
+                RecordDateTime = DateTime.Now
+            };
+
             HandChatRecordData.Add(handChatRecord0);
             HandChatRecordData.Add(handChatRecord1);
             HandChatRecordData.Add(handChatRecord2);
+            HandChatRecordData.Add(handChatRecord3);
             return HandChatRecordData;
         }
 

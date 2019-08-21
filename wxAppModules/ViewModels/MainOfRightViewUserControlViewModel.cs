@@ -1,4 +1,5 @@
-﻿using Prism.Commands;
+﻿using Newtonsoft.Json;
+using Prism.Commands;
 using Prism.Events;
 using Prism.Mvvm;
 using System;
@@ -6,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using wxAppHelper.Helper;
 using wxAppHelper.UsingEventAggregator;
 using wxAppHelper.ViewModel;
 
@@ -57,7 +59,15 @@ namespace wxAppModules.ViewModels
             //发送A
             Task.Run(async () =>
             {
-                await new wxAppHelper.Helper.MqttNetInitialize(_ea).Publish(subscribe, MessageProperty);
+                var theNotifications = new TheNotifications()
+                {
+                    SourceId = wxAppHelper.Helper.InitializeData.TheCurrentUserId,
+                    TargetId=Convert.ToInt32(ContactIdProperty),
+                    Content=MessageProperty,
+                    RecordDateTime=DateTime.Now
+                };
+                string json = JsonConvert.SerializeObject(theNotifications);
+                await new wxAppHelper.Helper.MqttNetInitialize(_ea).Publish(subscribe, json);
                 MessageProperty = null;
             });
 
