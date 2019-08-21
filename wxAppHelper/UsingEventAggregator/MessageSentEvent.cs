@@ -26,4 +26,9 @@ namespace wxAppHelper.UsingEventAggregator
     {
 
     }
+
+    public class TheTheNotificationsSentEvent : PubSubEvent<string>
+    {
+
+    }
 }

@@ -6,6 +6,7 @@ using Prism.Ioc;
 using wxAppModules;
 using System;
 using System.Windows.Threading;
+using Prism.Events;
 
 namespace wxApp
 {
@@ -19,6 +20,7 @@ namespace wxApp
             wxAppHelper.Helper.InitializeData.Initialize();
             Current.DispatcherUnhandledException += App_OnDispatcherUnhandledException;
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
+            //new wxAppHelper.Helper.MqttNetInitialize().InitializeAsync();
             //this.DispatcherUnhandledException += new System.Windows.Threading.DispatcherUnhandledExceptionEventHandler(App_DispatcherUnhandledException);
             //AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
 

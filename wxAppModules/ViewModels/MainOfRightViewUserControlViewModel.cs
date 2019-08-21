@@ -35,18 +35,46 @@ namespace wxAppModules.ViewModels
                 RecordDateTime = DateTime.Now
 
             });
-            MessageProperty = null;
+  
             HandChatRecordData = wxAppHelper.Helper.InitializeData.HandChatRecordData.Where(x => (x.SourceIdProperty == _contactId && x.TargetIdProperty == wxAppHelper.Helper.InitializeData.TheCurrentUserId) || (x.TargetIdProperty == _contactId && x.SourceIdProperty == wxAppHelper.Helper.InitializeData.TheCurrentUserId)).ToList();
+            var subscribe = "Subscription" + "_" + wxAppHelper.Helper.InitializeData.TheCurrentUserId + "_" + ContactIdProperty;
+            //订阅A
+            if (!wxAppHelper.Helper.MqttNetInitializeData.SUBSCRIBENO.Contains(subscribe))
+            {
+                Task.Run(async () =>
+                {
+                    await new wxAppHelper.Helper.MqttNetInitialize(_ea).Subscribe(subscribe);
+                    wxAppHelper.Helper.MqttNetInitializeData.SUBSCRIBENO.Add(subscribe);
+                });
+                //发送X
+                Task.Run(async () =>
+                {
+                    await new wxAppHelper.Helper.MqttNetInitialize(_ea).Publish(wxAppHelper.Helper.MqttNetInitializeData.SUBSCRIBE, subscribe + "|" + ContactIdProperty);
+                });
+            }
+            
+            
+            //发送A
+            Task.Run(async () =>
+            {
+                await new wxAppHelper.Helper.MqttNetInitialize(_ea).Publish(subscribe, MessageProperty);
+                MessageProperty = null;
+            });
+
+            
         }
         public void TheContactChatRecordReceived(int? contactId)
         {
             _contactId = Convert.ToInt32(contactId);
             var contact = wxAppHelper.Helper.InitializeData.HandContactData.Where(x => x.IdProperty == contactId).FirstOrDefault();
+            ContactIdProperty = contactId;
             NameProperty = contact != null ? contact.NameProperty : null;
             //获取当前用户和联系人的聊天记录
             HandChatRecordData = wxAppHelper.Helper.InitializeData.HandChatRecordData.Where(x => (x.SourceIdProperty == contactId && x.TargetIdProperty == wxAppHelper.Helper.InitializeData.TheCurrentUserId) || (x.TargetIdProperty == contactId && x.SourceIdProperty == wxAppHelper.Helper.InitializeData.TheCurrentUserId)).ToList();
 
         }
+
+        
         #endregion
         #region Command
         /// <summary>
@@ -55,6 +83,13 @@ namespace wxAppModules.ViewModels
         public DelegateCommand PublishMessageDelegateCommand { get; private set; }
         #endregion
         #region Property
+        private int? _contactIdProperty;
+
+        public int? ContactIdProperty
+        {
+            get { return _contactIdProperty; }
+            set { SetProperty(ref _contactIdProperty, value); }
+        }
         /// <summary>
         /// 右 内容框
         /// </summary>
@@ -78,10 +113,7 @@ namespace wxAppModules.ViewModels
         public string MessageProperty
         {
             get { return _messageProperty; }
-            set
-            {
-                SetProperty(ref _messageProperty, value);
-            }
+            set { SetProperty(ref _messageProperty, value); }
         }
         #endregion
     }

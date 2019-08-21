@@ -106,7 +106,7 @@
                              SpellCheck.IsEnabled="True">
                     <FlowDocument>
                         <Paragraph>
-                            <Run Text="{Binding MessageProperty}" />
+                            <Run Text="{Binding MessageProperty,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
                         </Paragraph>
                     </FlowDocument>
                 </RichTextBox>

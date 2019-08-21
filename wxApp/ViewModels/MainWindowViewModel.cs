@@ -22,8 +22,10 @@ namespace wxApp.ViewModels
         private IDialogCoordinator dialogCoordinator;
         public MainWindowViewModel(IEventAggregator ea, IRegionManager regionManager)
         {
+            
             dialogCoordinator = DialogCoordinator.Instance;
             _ea = ea;
+            new wxAppHelper.Helper.MqttNetInitialize(_ea).InitializeAsync();
             _regionManager = regionManager;
             IsLoginFailed = true;
             MessageReceived("message");
